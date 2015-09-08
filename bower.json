@@ -1,0 +1,33 @@
+{
+  "name": "pushmeBaby",
+  "version": "0.0.1",
+  "authors": [
+    "Ramón Albertí <krainet@gmail.com>"
+  ],
+  "description": "Bower packages for pushmeBaby framework",
+  "keywords": [
+    "pushmeBaby",
+    "Boilerplate",
+    "Angularjs",
+    "Material",
+    "Kickstarter"
+  ],
+  "license": "MIT",
+  "homepage": "http://www.develjitsu.net",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "vendor",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "angular": "~1.4.5",
+    "angular-bootstrap": "~0.13.4",
+    "angular-mocks": "~1.4.5",
+    "angular-resource": "~1.4.5",
+    "angular-ui-router": "~0.2.15",
+    "bootstrap": "~3.3.5"
+  }
+}

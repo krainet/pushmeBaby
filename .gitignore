@@ -1,0 +1,7 @@
+/nbproject/*
+.idea/*
+/node_modules/*
+/vendor/*
+/build/*
+/bin/*
+_*
