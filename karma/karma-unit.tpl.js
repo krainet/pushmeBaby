@@ -18,7 +18,7 @@ module.exports = function ( karma ) {
     ],
     frameworks: [ 'jasmine' ],
     plugins: [ 'karma-jasmine', 'karma-firefox-launcher', 'karma-chrome-launcher', 'karma-phantomjs-launcher' ],
-    preprocessors: {}
+    preprocessors: {},
 
     /**
      * How to report, by default.

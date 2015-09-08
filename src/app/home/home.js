@@ -14,7 +14,7 @@
                         data: {
                             pageTitle: 'Home'
                         }
-                    });                               
+                    });
         }]);
 
     app.controller('HomeController', ['$log','$scope','$state', function ($log,$scope,$state) {
@@ -28,6 +28,7 @@
             init();
 
         }]);
+
 }(angular.module("pushmeBaby.home", [
     'ui.router'
 ])));

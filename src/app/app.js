@@ -16,7 +16,7 @@
                                     $log.warn('App::ResolveData::');
 
                                     var def = $q.defer();
-                                    globalService.api('?json=%5BJSON-code-to-validate%5D').get(function (data) {
+                                    globalService.api('posts/1').get(function (data) {
                                         def.resolve(data);
                                         $log.warn(data);
                                     }, function (err) {
@@ -80,5 +80,6 @@
     'templates-common',
     'ui.router.state',
     'ui.router',
-    'cInterceptor'
+    'cInterceptor',
+    'genericDirectives'
 ])));

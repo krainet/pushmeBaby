@@ -79,10 +79,19 @@ module.exports = function (grunt) {
                 'vendor/angular-material/angular-material.js',
                 'vendor/angular-resource/angular-resource.js',
                 'vendor/angular-ui-router/release/angular-ui-router.js',
-                'vendor/angular-bootstrap/ui-bootstrap.js'
+                'vendor/angular-bootstrap/ui-bootstrap.js',
+                'vendor/angular-bootstrap/ui-bootstrap-tpls.min.js',
+                'vendor/jquery/dist/jquery.min.js',
+                'vendor/bootstrap/dist/js/bootstrap.min.js',
+                'vendor/json3/lib/json3.min.js',
+                'vendor/oclazyload/dist/ocLazyLoad.min.js',
+                'vendor/angular-loading-bar/build/loading-bar.min.js',
+                'vendor/metisMenu/dist/metisMenu.min.js',
+                'vendor/Chart.js/Chart.min.js'
             ],
             css: [
-
+                'vendor/metisMenu/dist/metisMenu.min.css',
+                'vendor/angular-loading-bar/build/loading-bar.min.css'
             ],
             css2: [
 
@@ -146,6 +155,12 @@ module.exports = function (grunt) {
                         dest: '<%= build_dir %>/assets/',
                         cwd: 'src/assets',
                         expand: true
+                    },
+                    {
+                        src: ['.htaccess'],
+                        dest: '<%= build_dir %>/',
+                        cwd: '.',
+                        expand: true
                     }
                 ]
             },
@@ -207,6 +222,12 @@ module.exports = function (grunt) {
                         src: ['**'],
                         dest: '<%= compile_dir %>/assets',
                         cwd: '<%= build_dir %>/assets',
+                        expand: true
+                    },
+                    {
+                        src: ['.htaccess'],
+                        dest: '<%= compile_dir %>/',
+                        cwd: '.',
                         expand: true
                     }
                 ]
@@ -552,6 +573,15 @@ module.exports = function (grunt) {
             html2: {
                 files: ['<%= app_files.html %>'],
                 tasks: ['index:build']
+            },
+            /**
+             * .htaccess
+             */
+            htaccess: {
+                files: [
+                    '.htaccess'
+                ],
+                tasks: ['copy:build_app_assets']
             },
             /**
              * When our templates change, we only rewrite the template cache.

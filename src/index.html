@@ -2,6 +2,8 @@
 <html ng-app="pushmeBaby" ng-controller="AppController">
     <head>
         <!-- Base href to remove hashtag from URL -->
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
         <base href="/">
         
         <title ng-bind="pageTitle"></title>
@@ -23,10 +25,22 @@
 
     <body>
         <!-- <div class="container menu" ui-view="main"></div> -->
+<!--
         <div ui-view="header" class=""></div>
         <div class="container" style="text-align: center;">
-            <div ui-view="container" class="well" style="width:98%;"></div>
+
         </div>
-        <div ui-view="footer" class="" style="margin-top:20px"></div>       
+        <div ui-view="footer" class="" style="margin-top:20px"></div>
+-->
+        <div id="wrapper">
+            <!-- Navigation -->
+            <header></header>
+            <!-- /.navbar-top-links -->
+
+            <!-- /.navbar-static-side -->
+            <div id="page-wrapper" style="min-height: 561px;">
+                <div ui-view="container" class="well" style="width:98%;"></div>
+            </div>
+        </div>
     </body>
 </html>
