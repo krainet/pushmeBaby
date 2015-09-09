@@ -6,15 +6,13 @@
                 <a ui-sref="root.home"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
             </li>
             <li ui-sref-active="active">
-
-                <a ui-sref="root.home"><i class="fa fa-bar-chart-o fa-fw"></i> Stats<span></span></a>
-
+                <a ui-sref="root.chart"><i class="fa fa-bar-chart-o fa-fw"></i> Stats<span></span></a>
             </li>
             <li ui-sref-active="active">
-                <a ui-sref="root.home"><i class="fa fa-table fa-fw"></i> Scheduller</a>
+                <a ui-sref="root.scheduller"><i class="fa fa-table fa-fw"></i> Scheduller</a>
             </li>
             <li ui-sref-active="active">
-                <a ui-sref="root.home"><i class="fa fa-edit fa-fw"></i> Single Push</a>
+                <a ui-sref="root.simplepush"><i class="fa fa-edit fa-fw"></i> Single Push</a>
             </li>
             <li ng-class="{active: collapseVar==1}">{{dropDown}}
                 <a href="" ng-click="check(1)"><i class="fa fa-wrench fa-fw"></i> UI Elements<span

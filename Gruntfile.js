@@ -87,11 +87,15 @@ module.exports = function (grunt) {
                 'vendor/oclazyload/dist/ocLazyLoad.min.js',
                 'vendor/angular-loading-bar/build/loading-bar.min.js',
                 'vendor/metisMenu/dist/metisMenu.min.js',
-                'vendor/Chart.js/Chart.min.js'
+                'vendor/Chart.js/Chart.min.js',
+                'vendor/angular-chart.js/dist/angular-chart.js',
+                'vendor/ng-table/dist/ng-table.js'
             ],
             css: [
                 'vendor/metisMenu/dist/metisMenu.min.css',
-                'vendor/angular-loading-bar/build/loading-bar.min.css'
+                'vendor/angular-loading-bar/build/loading-bar.min.css',
+                'vendor/angular-chart.js/dist/angular-chart.css',
+                'vendor/ng-table/dist/ng-table.css'
             ],
             css2: [
 

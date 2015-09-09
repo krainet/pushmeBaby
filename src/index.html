@@ -14,7 +14,7 @@
         <!-- compiled CSS --><% styles.forEach( function ( file ) { %>
         <link rel="stylesheet" type="text/css" href="<%= file %>" /><% }); %>
 
-        <!-- compiled CSS --><% css_cdn.forEach( function ( file ) { %>
+        <!-- cdn CSS --><% css_cdn.forEach( function ( file ) { %>
         <link rel="stylesheet" type="text/css" href="<%= file %>" /><% }); %>
 
         <!-- compiled JavaScript --><% scripts.forEach( function ( file ) { %>
@@ -24,7 +24,6 @@
 
 
     <body>
-        <!-- <div class="container menu" ui-view="main"></div> -->
 <!--
         <div ui-view="header" class=""></div>
         <div class="container" style="text-align: center;">

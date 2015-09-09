@@ -76,6 +76,8 @@
     'pushmeBaby.about',
     'pushmeBaby.apitest',
     'pushmeBaby.chart',
+    'pushmeBaby.scheduller',
+    'pushmeBaby.simplepush',
     'ui.bootstrap',
     'templates-app',
     'templates-common',
@@ -83,5 +85,7 @@
     'ui.router',
     'cInterceptor',
     'genericDirectives',
-    'ngAnimate'
+    'ngAnimate',
+    'chart.js',
+    'ngTable'
 ])));
