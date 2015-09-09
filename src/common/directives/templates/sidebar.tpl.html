@@ -7,14 +7,14 @@
             </li>
             <li ui-sref-active="active">
 
-                <a ui-sref="root.home"><i class="fa fa-bar-chart-o fa-fw"></i> Charts<span></span></a>
+                <a ui-sref="root.home"><i class="fa fa-bar-chart-o fa-fw"></i> Stats<span></span></a>
 
             </li>
             <li ui-sref-active="active">
-                <a ui-sref="root.home"><i class="fa fa-table fa-fw"></i> Tables</a>
+                <a ui-sref="root.home"><i class="fa fa-table fa-fw"></i> Scheduller</a>
             </li>
             <li ui-sref-active="active">
-                <a ui-sref="root.home"><i class="fa fa-edit fa-fw"></i> Forms</a>
+                <a ui-sref="root.home"><i class="fa fa-edit fa-fw"></i> Single Push</a>
             </li>
             <li ng-class="{active: collapseVar==1}">{{dropDown}}
                 <a href="" ng-click="check(1)"><i class="fa fa-wrench fa-fw"></i> UI Elements<span
@@ -42,7 +42,7 @@
                 <!-- /.nav-second-level -->
             </li>
             <li ng-class="{active: collapseVar==2}">
-                <a href="" ng-click="check(2)"><i class="fa fa-sitemap fa-fw"></i> Multi-Level Dropdown<span
+                <a href="" ng-click="check(2)"><i class="fa fa-sitemap fa-fw"></i> Options Menú<span
                         class="fa arrow"></span></a>
                 <ul class="nav nav-second-level" collapse="collapseVar!=2">
                     <li>
@@ -51,7 +51,7 @@
                     <li>
                         <a href="">Second Level Item</a>
                     </li>
-                    <li ng-init="third=!third" ng-class="{active: multiCollapseVar==3}">
+                    <!--<li ng-init="third=!third" ng-class="{active: multiCollapseVar==3}">
                         <a href="" ng-click="multiCheck(3)">Third Level <span class="fa arrow"></span></a>
                         <ul class="nav nav-third-level" collapse="multiCollapseVar!=3">
                             <li>
@@ -68,21 +68,8 @@
                             </li>
 
                         </ul>
-                        <!-- /.nav-third-level -->
-                    </li>
-                </ul>
-                <!-- /.nav-second-level -->
-            </li>
-            <li ng-class="{active:collapseVar==4}">
-                <a href="" ng-click="check(4)"><i class="fa fa-files-o fa-fw"></i> Sample Pages<span
-                        class="fa arrow"></span></a>
-                <ul class="nav nav-second-level" collapse="collapseVar!=4">
-                    <li ng-class="{active: selectedMenu=='blank'}">
-                        <a ui-sref="root.home" ng-click="selectedMenu='blank'">Blank Page</a>
-                    </li>
-                    <li>
-                        <a ui-sref="root.home">Login Page</a>
-                    </li>
+                        &lt;!&ndash; /.nav-third-level &ndash;&gt;
+                    </li>-->
                 </ul>
                 <!-- /.nav-second-level -->
             </li>

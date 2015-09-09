@@ -75,11 +75,13 @@
     'pushmeBaby.home',
     'pushmeBaby.about',
     'pushmeBaby.apitest',
+    'pushmeBaby.chart',
     'ui.bootstrap',
     'templates-app',
     'templates-common',
     'ui.router.state',
     'ui.router',
     'cInterceptor',
-    'genericDirectives'
+    'genericDirectives',
+    'ngAnimate'
 ])));

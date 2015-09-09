@@ -3,9 +3,9 @@
  */
 angular.module('genericDirectives', [])
 
-    .directive('fileUpload', function () {
+    .directive('chat',function(){
         return {
-            templateUrl:'directives/templates/chat.tpl.html',
+            templateUrl: 'directives/templates/chat.tpl.html',
             restrict: 'E',
             replace: true,
         };

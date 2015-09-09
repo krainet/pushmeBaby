@@ -2,25 +2,25 @@
     app.config(['$stateProvider',
         function ($stateProvider) {
             $stateProvider
-                    .state('root.home', {
-                        url: '/',
+                    .state('root.chart', {
+                        url: '/chart',
                         parent: 'root',
                         views: {
                             "container@": {
-                                controller: 'HomeController',
-                                templateUrl: 'home/home.tpl.html'
+                                controller: 'ChartController',
+                                templateUrl: 'chart/chart.tpl.html'
                             }
                         },
                         data: {
-                            pageTitle: 'Home'
+                            pageTitle: 'chart'
                         }
                     });
         }]);
 
-    app.controller('HomeController', ['$log','$scope','$state', function ($log,$scope,$state) {
+    app.controller('ChartController', ['$log','$scope','$state', function ($log,$scope,$state) {
 
             var init = function () {
-                $log.info('App:: Starting HomeController');
+                $log.info('App:: Starting chartController');
                 $scope.model={};
                 $scope.model.pageTitle=$state.current.data.pageTitle;
             };
@@ -29,7 +29,7 @@
 
         }]);
 
-}(angular.module("pushmeBaby.home", [
+}(angular.module("pushmeBaby.chart", [
     'ui.router',
     'ngAnimate'
 ])));
