@@ -30,7 +30,7 @@
         init();
 
         //Dummy data
-        $http.get('http://jsonplaceholder.typicode.com/users').
+        $http.get('https://jsonplaceholder.typicode.com/users').
             then(function(data){
 
                 /* jshint ignore:start */
