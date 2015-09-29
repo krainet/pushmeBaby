@@ -1,0 +1,19 @@
+<table width="580" border="0" cellpadding="0" cellspacing="0">
+    <tbody>
+    <tr>
+        <td>
+            <img src="{{item.link}}" width="580px" ng-click="setImage()">
+        </td>
+    </tr>
+    <tr ng-if="item.footerText != '' ">
+        <table width="580" border="0" cellpadding="0" cellspacing="0">
+            <tbody>
+                <tr>
+                    <td align="left">{{item.footerText}}</td>
+                    <td align="right" ng-if="footerDiscount != '' ">{{item.footerDiscount}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </tr>
+    </tbody>
+</table>
