@@ -23,8 +23,8 @@
                             {{sch.message}}</td>
                         <td title="'F.Envío'" filter="{ date_send: 'text'}" sortable="'date_send'" style="width:10%;">
                             {{sch.date_send|date:'yyyy-MM-dd'}}</td>
-                        <td title="'Draft'" filter="{ is_draft: 'number'}" sortable="'is_draft'" style="width:10%;">
-                            {{sch.is_draft}}</td>
+                        <td title="'Draft'" filter="{ is_draft: 'text'}" sortable="'is_draft'" style="width:10%;">
+                            <h6 style="{{sch.processed?'color:green;':'color:red;'}}"><i ng-class="sch.is_draft?'fa fa-times':'fa fa-check-square-o'"></i> {{sch.is_draft && 'Si' || 'No'}}</h6>
                         <td title="'Enviado'" filter="{ processed: 'text'}" sortable="'processed'" style="width:10%;" class="text-center">
                             <h6 style="{{sch.processed?'color:green;':'color:red;'}}"><i ng-class="sch.processed?'fa fa-check-circle':'fa fa-times'"></i> {{sch.processed && 'Si' || 'No'}}</h6>
                         </td>
