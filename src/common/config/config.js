@@ -4,7 +4,7 @@
 
 //URL from api to test api resources
 //var API_URL = 'http://validate.jsontest.com/';
-var API_URL = 'https://jsonplaceholder.typicode.com';
+var API_URL = 'http://localhost:3000/api';
 
 //Send custom header in your request and response headers
 //Used for example to send auth-cookies in headers

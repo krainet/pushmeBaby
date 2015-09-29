@@ -43,5 +43,7 @@
     "metisMenu": "~2.1.0",
     "ng-table": "~0.8.3",
     "oclazyload": "~1.0.4"
+  },
+  "dependencies": {
   }
 }

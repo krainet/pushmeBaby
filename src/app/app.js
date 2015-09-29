@@ -10,21 +10,6 @@
                     .state('root', {
                         url: '',
                         abstract: true,
-                        resolve: {
-                            load_data: (['globalService', '$q', '$log',
-                                function (globalService, $q, $log) {
-                                    $log.warn('App::ResolveData::');
-
-                                    var def = $q.defer();
-                                    globalService.api('posts/1').get(function (data) {
-                                        def.resolve(data);
-                                        $log.warn(data);
-                                    }, function (err) {
-                                        def.reject(err);
-                                    });
-                                    return def.promise;
-                                }])
-                        },
                         views: {
                             'header': {
                                 templateUrl: 'header.tpl.html',
@@ -78,6 +63,7 @@
     'pushmeBaby.chart',
     'pushmeBaby.scheduller',
     'pushmeBaby.simplepush',
+    'pushmeBaby.devicetoken',
     'ui.bootstrap',
     'templates-app',
     'templates-common',
