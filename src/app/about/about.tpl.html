@@ -1,35 +1,9 @@
-<h1>pushmeBaby - NCC1701 Enterprise</h1>
+<h1>Newsletter Tool</h1>
 
-<p>Code it up for module : <strong>{{model.pageTitle}}</strong></p>
-
-<button class="btn btn-primary" ng-click="" ui-sref="root.home">go Home</button>
-<p>&nbsp;</p>
-
-
-<h1>Demo: Advanced Features</h1>
-
-<ul>
-    <li><strong>Callbacks:</strong> The directives offer various callbacks, which in this example will log the events to the console.
-        Additionally, the callbacks on the dnd-list can prevent an element from being dropped. In this example <strong>you can't drop elements
-            after the 10th position</strong>, because we are preventing that in the dnd-dragover callback.</li>
-    <li><strong>dnd-allowed-types in nested lists:</strong> We are using the dnd-allowed-types attribute to ensure that Containers
-        only accept items, but not other containers.</li>
-    <li><strong>dnd-horizontal-list:</strong> This attribute tells the positioning algorithm to drop incoming elements left or right
-        of the existing elements, instead of above or below.</li>
-    <li><strong>dnd-external-sources:</strong> Allows to drag and drop elements accross browser windows, which you can test in this
-        example. The downside to this is that the lists will accept arbitrary text to be dropped. To prevent that, the dnd-drop callback
-        verifies that the dropped element is of the desired format.</li>
-    <li><strong>dnd-effect-allowed:</strong> This attribute is set to 'copyMove' in this example, which means that the user can choose
-        whether to copy or move an element by holding down the Ctrl key. Note that this doesn't work in Chrome very well.</li>
-</ul>
-
-<div class="advancedDemo row">
-    <div ng-repeat="containers in model" class="col-md-4">
-        <div class="dropzone box box-yellow" ng-include="'about/simple.tpl.html'"></div>
-    </div>
+<div class="alert alert-success">
+    <strong>Instructions:</strong>
+    Build your perfect Newsletter using drag &amp; drop! Have fun!
+    That can not be considered a job...
 </div>
 
-<div view-source="advanced"></div>
-
-<h2>Generated Model</h2>
-<pre>{{modelAsJson}}</pre>
+<div class="nestedDemo row" ng-include="'about/simple.tpl.html'"></div>

@@ -17,58 +17,73 @@
                 });
         }]);
 
-    app.controller('AboutController', ['$scope', '$log','$state', function ($scope, $log,$state) {
+    app.controller('AboutController', ['$scope', '$log','$state','$modal', function ($scope, $log, $state, $modal) {
         $log.info('App:: Starting AboutController');
 
         var init = function () {
             $scope.model = {};
             $scope.model.pageTitle = $state.current.data.pageTitle;
-
         };
         init();
-        $scope.dragoverCallback = function(event, index, external, type) {
-            $scope.logListEvent('dragged over', event, index, external, type);
-            // Disallow dropping in the third row. Could also be done with dnd-disable-if.
-            return index < 10;
-        };
 
-        $scope.dropCallback = function(event, index, item, external, type, allowedType) {
-            $scope.logListEvent('dropped at', event, index, external, type);
-            if (external) {
-                if (allowedType === 'itemType' && !item.label) {return false;}
-                if (allowedType === 'containerType' && !angular.isArray(item)) {return false;}
+
+        $scope.models = {
+            selected: null,
+            templates: [
+                {type: "item", id: 1},
+                {type: "item2", id: 1},
+                {type: "header1", id: 1},
+                {type: "disclaimer1", id: 1},
+                {type: "footer1", id: 1},
+                {type: "image1", id: 1, link:'http://str.yeeday.net/img/cm/es/mqu/no_image.png', linkDestination:''},
+                {type: "freeHtml", id: 1, html:''},
+                {type: "crosseling", id: 1},
+                {type: "verMejoresB", id: 1},
+                {type: "container", id: 1, columns: [[], []]},
+                {type: "container3", id: 1, columns: [[],[],[]]}
+            ],
+            dropzones: {
+                "A": [
+                    {
+                        "type": "header1",
+                        "id": "1"
+                    },
+
+                ],
+                "B": [
+
+                ]
             }
-            return item;
         };
 
-        $scope.logEvent = function(message, event) {
-            console.log(message, '(triggered by the following', event.type, 'event)');
-            console.log(event);
-        };
-
-        $scope.logListEvent = function(action, event, index, external, type) {
-            var message = external ? 'External ' : '';
-            message += type + ' element is ' + action + ' position ' + index;
-            $scope.logEvent(message, event);
-        };
-
-        $scope.model = [];
-
-        // Initialize model
-        var id = 10;
-        for (var i = 0; i < 3; ++i) {
-            $scope.model.push([]);
-            for (var j = 0; j < 2; ++j) {
-                $scope.model[i].push([]);
-                for (var k = 0; k < 7; ++k) {
-                    $scope.model[i][j].push({label: 'Item ' + id++});
-                }
-            }
-        }
-
-        $scope.$watch('model', function(model) {
+        $scope.$watch('models.dropzones', function(model) {
             $scope.modelAsJson = angular.toJson(model, true);
         }, true);
+
+        $scope.setImage = function () {
+            $scope.modalInstance = $modal.open({
+                templateUrl: 'about/setImage.modal.tpl.html',
+                size: 'md',
+                scope: $scope
+            });
+
+            // Cuando cerramos el modal...
+            $scope.modalInstance.result.then(function (newUrl) {
+               // $log.debug(newUrl, newUrlDest);
+                if (newUrl.link === 'reset') {
+                    $scope.models.selected.link = 'http://str.yeeday.net/img/cm/es/mqu/no_image.png';
+                    $scope.models.selected.linkDestination = '';
+                }
+                else {
+                    $scope.models.selected.link = newUrl.link;
+                    $scope.models.selected.linkDestination = newUrl.link2;
+                }
+
+
+            }, function () {
+                $log.info('Modal dismissed at: ' + new Date());
+            });
+        };
 
 
     }]);
