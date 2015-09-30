@@ -107,6 +107,9 @@
                                 <label>Texto del Push</label>
                                 <textarea class="form-control" rows="3"></textarea>
                             </div>
+                            <div class="well" ns-hide="dev.recibedData">
+                                {{dev.result}}
+                            </div>
                         </form>
                     </div>
                     <!-- /.col-lg-6 (nested) -->
@@ -134,9 +137,9 @@
                             <label>DeviceToken</label>
                             <div class="form-group input-group">
                                 <span class="input-group-addon"><i class="fa fa-mobile"></i></span>
-                                <input type="text" class="form-control" placeholder="Devicetoken">
+                                <input type="text" class="form-control" placeholder="Devicetoken" ng-model="dev.devicetoken">
                                 <span class="input-group-btn">
-                                    <button class="btn btn-default" type="button"><i class="fa fa-search"></i>
+                                    <button ng-click="getTokenFromDeviceToken()" class="btn btn-default" type="button"><i class="fa fa-search"></i>
                                     </button>
                                 </span>
                             </div>
@@ -160,7 +163,7 @@
                 <!-- /.row (nested) -->
                 <div class="col-lg-6 text-left">
                     <hr>
-                    <button type="submit" class="btn btn-success"><i class="fa fa-paper-plane-o"></i> Enviar PUSH ahora</button>
+                    <button type="submit" class="btn btn-success" ng-click="sendSimplePush(dev.token)"><i class="fa fa-paper-plane-o"></i> Enviar PUSH ahora</button>
                     <button type="reset" class="btn btn-danger"><i class="fa fa-ban"></i> Borrar Formulario</button>
                 </div>
                 <div class="col-lg-6 text-right">

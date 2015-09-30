@@ -64,6 +64,7 @@
     'pushmeBaby.scheduller',
     'pushmeBaby.simplepush',
     'pushmeBaby.devicetoken',
+    'pushmeBaby.segment',
     'ui.bootstrap',
     'templates-app',
     'templates-common',

@@ -32,6 +32,49 @@ angular.module('devicetokenService', [])
                         });
                         return def.promise;
                     },
+                    getTokenFromEmail: function (token) {
+                        var def = $q.defer();
+                        token = btoa(token);
+                        this.api('0/'+token).get({}, {}, function (data) {
+                            def.resolve(data);
+                        }, function (err) {
+                            def.reject(err);
+                        });
+                        return def.promise;
+                    },
+                    getTokenFromIdCustomer: function (token) {
+                        var def = $q.defer();
+                        token = btoa(token);
+                        this.api('0/'+token).get({}, {}, function (data) {
+                            def.resolve(data);
+                        }, function (err) {
+                            def.reject(err);
+                        });
+                        return def.promise;
+                    },
+                    getTokenFromDeviceToken: function (token) {
+                        var def = $q.defer();
+                        token = btoa(token);
+                        this.api('0/0/'+token).get({}, {}, function (data) {
+                            def.resolve(data);
+                        }, function (err) {
+                            def.reject(err);
+                        });
+                        return def.promise;
+                    },
+                    sendSimplePush: function(token){
+                        var def = $q.defer();
+                        token = btoa(token);
+                        postData = {
+                            devicetoken: token
+                        };
+                        this.api('pushlauncher').post({}, postData, function (data) {
+                            def.resolve(data);
+                        }, function (err) {
+                            def.reject(err);
+                        });
+                        return def.promise;
+                    },
                     testFunction: function () {
                         alert('testFunction');
                     }

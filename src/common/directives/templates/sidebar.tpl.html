@@ -2,26 +2,29 @@
     <div class="sidebar-nav navbar-collapse">
         <ul class="nav in" id="side-menu">
             <sidebar-search></sidebar-search>
-            <li>
+            <li ui-sref-active>
                 <a ui-sref="root.home"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
             </li>
-            <li>
+            <li ui-sref-active>
                 <a ui-sref="root.chart"><i class="fa fa-bar-chart-o fa-fw"></i> Stats<span></span></a>
             </li>
-            <li>
+            <li ui-sref-active>
                 <a ui-sref="root.simplepush"><i class="fa fa-edit fa-fw"></i> Single Push</a>
             </li>
-            <li>
+            <li ui-sref-active>
+                <a ui-sref="root.segment"><i class="fa fa-arrows-h"></i> Segments</a>
+            </li>
+            <li ui-sref-active>
                 <a ui-sref="root.scheduller"><i class="fa fa-table fa-fw"></i> Scheduller</a>
             </li>
-            <li >
+            <li ui-sref-active>
                 <a ui-sref="root.devicetoken"><i class="fa fa-tablet fa-fw"></i></i> Devicetoken</a>
             </li>
-            <li ng-class="{active: collapseVar==1}">
+            <li ng-class="{active: collapseVar==1}" ui-sref-active>
                 <a href="" ng-click="check(1)"><i class="fa fa-wrench fa-fw"></i> UI Elements<span
                         class="fa arrow"></span></a>
                 <ul class="nav nav-second-level" collapse="collapseVar!=1">
-                    <li ui-sref-active="active">
+                    <li ui-sref-active>
                         <a ui-sref="root.home">Panels and Wells</a>
                     </li>
                 </ul>
@@ -31,7 +34,7 @@
                 <a href="" ng-click="check(2)"><i class="fa fa-sitemap fa-fw"></i> Options Menú<span
                         class="fa arrow"></span></a>
                 <ul class="nav nav-second-level" collapse="collapseVar!=2">
-                    <li>
+                    <li ui-sref-active>
                         <a href="">Second Level Item</a>
                     </li>
 
