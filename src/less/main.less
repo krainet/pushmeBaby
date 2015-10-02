@@ -12,6 +12,7 @@
 @import '../app/about/about.less';
 @import '../../vendor/bootstrap/less/bootstrap.less';
 
+
 /**
  * This is our main variables file. We must include it last so we can overwrite any variable
  * definitions in our imported stylesheets.
@@ -28,7 +29,14 @@
  */
 @import '../app/home/home.less';
 
-
+.ta-editor {
+    min-height: 300px;
+    height: auto;
+    overflow: auto;
+    font-family: inherit;
+    font-size: 100%;
+    margin:20px 0;
+}
 
 
 .container.menu {

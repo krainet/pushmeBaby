@@ -4,6 +4,33 @@
     <strong>Instructions:</strong>
     Build your perfect Newsletter using drag &amp; drop! Have fun!
     That can not be considered a job...
+    <!--<content-Item content="content"></content-Item>-->
 </div>
 
-<div class="nestedDemo row" ng-include="'about/simple.tpl.html'"></div>
+<div class="col-md-12">
+    <div class="row">
+
+        <div class="col-md-8">
+            <div class="form-group">
+                <label>Newsletter</label>
+                <input class="form-control" placeholder="Nom Newslater" ng-model="data.name">
+                <label>Selecciona tienda objetivo</label>
+                <select class="form-control" ng-model="data.shop">
+                    <option  value="mqu" >Tech</option>
+                    <option  value="mqc" >Chic</option>
+                    <option  value="mqd" >Deporte</option>
+                    <option  value="mqk" >Kids</option>
+                    <option  value="mqh" >Hogar</option>
+                    <option  value="mqv" >Vino</option>
+                    <option  value="mqs" >Super</option>
+                </select>
+            </div>
+        </div>
+        <button type="button" class="btn btn-default btn-lg" ng-click="">Load</button>
+
+        <button type="button" class="btn btn-default btn-lg" ng-click="preview()">Preview</button>
+
+        <button type="button" class="btn btn-default btn-lg">Save</button>
+    </div>
+</div>
+<div class="dragNews" ng-include="'about/simple.tpl.html'"></div>

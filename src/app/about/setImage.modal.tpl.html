@@ -1,24 +1,21 @@
 <div>
     <div class="modal-header">
-        <h3 class="modal-title">Url Image</h3>
+        <h3 class="modal-title">{{models.selected.name}}px WIDTH!</h3>
     </div>
 
     <div class="modal-body">
-
-        <form class="form well stack clearfix" role="form" novalidate>
-
-            <p>Image with 580px width</p>
-            <input class="form-control" placeholder="Enter a valid url" ng-model="link">
-            <p>Url destination</p>
-            <input class="form-control" placeholder="Enter a valid url" ng-model="link2">
-
-            <div class="row-fluid">
-                <div class="col-xs-12">
-                    <button type="submit" class="btn btn-default" ng-click="modalInstance.close({'link':link,'link2':link2})">Submit</button>
-                    <button type="submit" class="btn btn-default" ng-click="modalInstance.close('reset', '')">Reset</button>
-                </div>
-            </div>
-        </form>
+        <p>Url Image</p>
+        <input class="form-control" placeholder="Enter an Image source" ng-model="models.selected.link">
+        <p>Alt Image</p>
+        <input class="form-control" placeholder="Ex: Super cool Image!" ng-model="models.selected.alt">
+        <p>Url destination</p>
+        <input class="form-control" placeholder="Enter the destination url" ng-model="models.selected.linkDestination">
+        <p>Footer color</p>
+        <input class="form-control" placeholder="Ex. {{data.color}}" ng-model="models.selected.color">
+        <p>Footer text</p>
+        <input class="form-control" placeholder="Ex. Megaventa" ng-model="models.selected.footerText">
+        <p>Footer discount</p>
+        <input class="form-control" placeholder="Ex. 80% Dto." ng-model="models.selected.footerDiscount">
     </div>
 </div>
 

@@ -28,9 +28,9 @@
                 
                 
                 //Testing service
-                apitestService.getAction().then(function (data) {
+               /* apitestService.getAction().then(function (data) {
                     $scope.myjson=data;
-                });
+                });*/
             };
             init();
         }]);

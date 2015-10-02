@@ -11,7 +11,7 @@
                         url: '',
                         abstract: true,
                         resolve: {
-                            load_data: (['globalService', '$q', '$log',
+                            /*load_data: (['globalService', '$q', '$log',
                                 function (globalService, $q, $log) {
                                     $log.warn('App::ResolveData::');
 
@@ -23,7 +23,7 @@
                                         def.reject(err);
                                     });
                                     return def.promise;
-                                }])
+                                }])*/
                         },
                         views: {
                             'header': {
@@ -87,5 +87,6 @@
     'genericDirectives',
     'ngAnimate',
     'chart.js',
-    'ngTable'
+    'ngTable',
+    'textAngular',
 ])));

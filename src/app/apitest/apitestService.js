@@ -26,13 +26,13 @@ angular.module('apitestService', [])
                     getAction: function () {
                         //Service action with promise resolve (then)
                         var def = $q.defer();
-                        this.api('?json=%5BJSON-code-to-validate%5D').get({}, {}, function (data) {
+                      /*  this.api('?json=%5BJSON-code-to-validate%5D').get({}, {}, function (data) {
                             $log.warn('Api::data:: ');
                             $log.warn(data);
                             def.resolve(data);
                         }, function (err) {
                             def.reject(err);
-                        });
+                        });*/
                         return def.promise;
                     },
                     testFunction: function () {
