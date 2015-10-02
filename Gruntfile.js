@@ -94,6 +94,7 @@ module.exports = function (grunt) {
                 'vendor/angular-drag-and-drop-lists/angular-drag-and-drop-lists.js',
                 'vendor/textAngular/dist/textAngular-rangy.min.js',
                 'vendor/textAngular/dist/textAngular.min.js',
+                'vendor/ngSticky/dist/sticky.min.js',
             ],
             css: [
                 'vendor/metisMenu/dist/metisMenu.min.css',

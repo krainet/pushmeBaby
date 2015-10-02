@@ -388,4 +388,5 @@
     'ui.router',
     'dndLists',
     'textAngular',
+    'sticky'
 ])));

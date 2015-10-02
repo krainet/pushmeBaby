@@ -89,4 +89,5 @@
     'chart.js',
     'ngTable',
     'textAngular',
+    'sticky'
 ])));
