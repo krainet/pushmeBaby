@@ -65,6 +65,7 @@
     'pushmeBaby.simplepush',
     'pushmeBaby.devicetoken',
     'pushmeBaby.segment',
+    'pushmeBaby.pushhistory',
     'ui.bootstrap',
     'templates-app',
     'templates-common',
