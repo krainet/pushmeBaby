@@ -99,16 +99,23 @@
                         <h3>Configurar Mensaje</h3>
                         <form role="form">
                             <div class="form-group">
-                                <label>Nombre del Push</label>
-                                <input class="form-control">
+                                <label>Push name</label>
+                                <input class="form-control" ng-model="dev.push_name">
                                 <p class="help-block">Indica un nombre para guardar este push y poder repetirlo.</p>
                             </div>
                             <div class="form-group">
-                                <label>Texto del Push</label>
-                                <textarea class="form-control" rows="3"></textarea>
+                                <label>Título push</label>
+                                <input class="form-control" ng-model="dev.push_title">
                             </div>
-                            <div class="well" ns-hide="dev.recibedData">
-                                {{dev.result}}
+                            <div class="form-group">
+                                <label>Texto del push</label>
+                                <textarea class="form-control" rows="3" ng-model="dev.push_message"></textarea>
+                            </div>
+
+                            <div class="well" ng-show="dev.show_dialog" ng-animate="'animate'">
+                                <div class="text-right"><i class="fa fa-times" ng-click="dev.show_dialog=false" style="cursor:pointer;"></i></div>
+                                <div ng-bind-html="dev.result">
+                                </div>
                             </div>
                         </form>
                     </div>
@@ -119,7 +126,7 @@
                             <label>Buscar por email</label>
                             <div class="form-group input-group">
                                 <span class="input-group-addon">@</span>
-                                <input type="text" class="form-control" placeholder="Email">
+                                <input type="text" class="form-control" placeholder="Email" ng-model="dev.email">
                                 <span class="input-group-btn">
                                     <button class="btn btn-default" type="button"><i class="fa fa-search"></i>
                                     </button>
@@ -128,7 +135,7 @@
                             <label>Buscar por idCustomer</label>
                             <div class="form-group input-group">
                                 <span class="input-group-addon">#</span>
-                                <input type="text" class="form-control" placeholder="IdCustomer">
+                                <input type="text" class="form-control" placeholder="IdCustomer" ng-model="dev.id_customer">
                                 <span class="input-group-btn">
                                     <button class="btn btn-default" type="button"><i class="fa fa-search"></i>
                                     </button>
@@ -164,7 +171,7 @@
                 <div class="col-lg-6 text-left">
                     <hr>
                     <button type="submit" class="btn btn-success" ng-click="sendSimplePush(dev.token)"><i class="fa fa-paper-plane-o"></i> Enviar PUSH ahora</button>
-                    <button type="reset" class="btn btn-danger"><i class="fa fa-ban"></i> Borrar Formulario</button>
+                    <button type="button" class="btn btn-danger" ng-click="clearDevForm()"><i class="fa fa-ban"></i> Borrar Formulario</button>
                 </div>
                 <div class="col-lg-6 text-right">
                     <hr>

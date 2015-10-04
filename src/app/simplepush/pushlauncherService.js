@@ -29,15 +29,10 @@ angular.module('pushlauncherService', [])
                         }
                     });
                 },
-                sendSimplePush: function(token,title,msg){
+                sendSimplePush: function(pushMsg){
                     var def = $q.defer();
-                    token = btoa(token);
-                    postData = {
-                        devicetoken: token,
-                        title: title,
-                        message: msg
-                    };
-                    this.api().save({}, postData, function (data) {
+                    pushMsg.token = btoa(pushMsg.token);
+                    this.api().save({}, pushMsg, function (data) {
                         def.resolve(data);
                     }, function (err) {
                         def.reject(err);

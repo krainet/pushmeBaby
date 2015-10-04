@@ -88,7 +88,8 @@ module.exports = function (grunt) {
                 'vendor/metisMenu/dist/metisMenu.min.js',
                 'vendor/Chart.js/Chart.min.js',
                 'vendor/angular-chart.js/dist/angular-chart.js',
-                'vendor/ng-table/dist/ng-table.js'
+                'vendor/ng-table/dist/ng-table.js',
+                'vendor/angular-sanitize/angular-sanitize.js'
             ],
             css: [
                 'vendor/metisMenu/dist/metisMenu.min.css',

@@ -56,6 +56,7 @@
 
 }(angular.module("pushmeBaby", [
     'ngResource',
+    'ngSanitize',
     'globalService',
     'pushmeBaby.home',
     'pushmeBaby.about',
