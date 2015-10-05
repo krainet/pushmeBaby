@@ -73,7 +73,7 @@
     'ngResource',
     'globalService',
     'pushmeBaby.home',
-    'pushmeBaby.about',
+    'pushmeBaby.newsletterMaker',
     'pushmeBaby.apitest',
     'pushmeBaby.chart',
     'pushmeBaby.scheduller',

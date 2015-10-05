@@ -44,51 +44,51 @@
 </script>
 
 <script type="text/ng-template" id="header1.html">
-    <div ng-include="'about/templates/Header1.tpl.html'"></div>
+    <div ng-include="'newsletterMaker/templates/Header1.tpl.html'"></div>
 </script>
 
 <script type="text/ng-template" id="disclaimer1.html">
-    <div ng-include="'about/templates/Disclaimer1.tpl.html'"></div>
+    <div ng-include="'newsletterMaker/templates/Disclaimer1.tpl.html'"></div>
 </script>
 
 <script type="text/ng-template" id="footer1.html">
-    <div ng-include="'about/templates/Footer1.tpl.html'"></div>
+    <div ng-include="'newsletterMaker/templates/Footer1.tpl.html'"></div>
 </script>
 
 <script type="text/ng-template" id="image580.html">
-    <div ng-include="'about/templates/Image580.tpl.html'"></div>
+    <div ng-include="'newsletterMaker/templates/Image580.tpl.html'"></div>
 </script>
 
 <script type="text/ng-template" id="image270.html">
-    <div ng-include="'about/templates/Image270.tpl.html'"></div>
+    <div ng-include="'newsletterMaker/templates/Image270.tpl.html'"></div>
 </script>
 
 <script type="text/ng-template" id="freeHtml.html">
-    <div ng-include="'about/templates/FreeHtml.tpl.html'"></div>
+    <div ng-include="'newsletterMaker/templates/FreeHtml.tpl.html'"></div>
 </script>
 
 <script type="text/ng-template" id="crosseling.html">
-    <div ng-include="'about/templates/Crosseling1.tpl.html'"></div>
+    <div ng-include="'newsletterMaker/templates/Crosseling1.tpl.html'"></div>
 </script>
 
 <script type="text/ng-template" id="verMejoresB.html">
-    <div ng-include="'about/templates/VerMejoresB.tpl.html'"></div>
+    <div ng-include="'newsletterMaker/templates/VerMejoresB.tpl.html'"></div>
 </script>
 
 <script type="text/ng-template" id="fan.html">
-    <div ng-include="'about/templates/Fan.tpl.html'"></div>
+    <div ng-include="'newsletterMaker/templates/Fan.tpl.html'"></div>
 </script>
 
 <script type="text/ng-template" id="bar.html">
-    <div ng-include="'about/templates/Bar.tpl.html'"></div>
+    <div ng-include="'newsletterMaker/templates/Bar.tpl.html'"></div>
 </script>
 
 <script type="text/ng-template" id="apps.html">
-    <div ng-include="'about/templates/Apps.tpl.html'"></div>
+    <div ng-include="'newsletterMaker/templates/Apps.tpl.html'"></div>
 </script>
 
 <script type="text/ng-template" id="simpleText.html">
-    <div ng-include="'about/templates/simpleText.tpl.html'"></div>
+    <div ng-include="'newsletterMaker/templates/simpleText.tpl.html'"></div>
 </script>
 
 
@@ -116,16 +116,12 @@
     <div class="toolbox box box-grey box-padding">
         <h3>New Elements</h3>
         <div class="row">
-
             <button ng-repeat="item in models.templates"
                     dnd-draggable="item"
                     dnd-effect-allowed="copy"
                     dnd-copied="item.id = item.id + 1" type="button" class="btn btn-default btn-lg">{{item.name}}</button>
         </div>
-
     </div>
-
-
 
     <div ng-if="models.selected" class="box box-grey box-padding">
         <h3>Selected</h3>

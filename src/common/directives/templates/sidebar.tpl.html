@@ -14,40 +14,16 @@
             <li ui-sref-active="active">
                 <a ui-sref="root.simplepush"><i class="fa fa-edit fa-fw"></i> Single Push</a>
             </li>
-            <li ng-class="{active: collapseVar==1}">{{dropDown}}
-                <a href="" ng-click="check(1)"><i class="fa fa-wrench fa-fw"></i> UI Elements<span
-                        class="fa arrow"></span></a>
-                <ul class="nav nav-second-level" collapse="collapseVar!=1">
-                    <li ui-sref-active="active">
-                        <a ui-sref="root.home">Panels and Wells</a>
-                    </li>
-                    <li ui-sref-active="active">
-                        <a ui-sref="root.home">Buttons</a>
-                    </li>
-                    <li ui-sref-active="active">
-                        <a ui-sref="root.home">Notifications</a>
-                    </li>
-                    <li ui-sref-active="active">
-                        <a ui-sref="root.home">Typography</a>
-                    </li>
-                    <li ui-sref-active="active">
-                        <a ui-sref="root.home"> Icons</a>
-                    </li>
-                    <li ui-sref-active="active">
-                        <a ui-sref="root.home">Grid</a>
-                    </li>
-                </ul>
-                <!-- /.nav-second-level -->
-            </li>
-            <li ng-class="{active: collapseVar==2}">
-                <a href="" ng-click="check(2)"><i class="fa fa-sitemap fa-fw"></i> Options Menú<span
+
+            <li ng-class="{active: collapseVar==1}">
+                <a href="" ng-click="check(2)"><i class="fa fa-sitemap fa-fw"></i> Newsletter<span
                         class="fa arrow"></span></a>
                 <ul class="nav nav-second-level" collapse="collapseVar!=2">
                     <li>
-                        <a href="">Second Level Item</a>
+                        <a ui-sref="root.newsletterMaker">Newsletter Maker</a>
                     </li>
                     <li>
-                        <a href="">Second Level Item</a>
+                        <a ui-sref="root.newsletterMaker">Newsletter Scheduller</a>
                     </li>
                     <!--<li ng-init="third=!third" ng-class="{active: multiCollapseVar==3}">
                         <a href="" ng-click="multiCheck(3)">Third Level <span class="fa arrow"></span></a>
@@ -71,6 +47,31 @@
                 </ul>
                 <!-- /.nav-second-level -->
             </li>
+           <!-- <li ng-class="{active: collapseVar==2}">{{dropDown}}
+                <a href="" ng-click="check(1)"><i class="fa fa-wrench fa-fw"></i> UI Elements<span
+                        class="fa arrow"></span></a>
+                <ul class="nav nav-second-level" collapse="collapseVar!=1">
+                    <li ui-sref-active="active">
+                        <a ui-sref="root.home">Panels and Wells</a>
+                    </li>
+                    <li ui-sref-active="active">
+                        <a ui-sref="root.home">Buttons</a>
+                    </li>
+                    <li ui-sref-active="active">
+                        <a ui-sref="root.home">Notifications</a>
+                    </li>
+                    <li ui-sref-active="active">
+                        <a ui-sref="root.home">Typography</a>
+                    </li>
+                    <li ui-sref-active="active">
+                        <a ui-sref="root.home"> Icons</a>
+                    </li>
+                    <li ui-sref-active="active">
+                        <a ui-sref="root.home">Grid</a>
+                    </li>
+                </ul>
+                &lt;!&ndash; /.nav-second-level &ndash;&gt;
+            </li>-->
         </ul>
     </div>
     <!-- /.sidebar-collapse -->

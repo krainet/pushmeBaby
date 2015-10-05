@@ -2,23 +2,23 @@
     app.config(['$stateProvider',
         function ($stateProvider) {
             $stateProvider
-                .state('root.about', {
-                    url: '/about',
+                .state('root.newsletterMaker', {
+                    url: '/newsletterMaker',
                     parent: 'root',
                     views: {
                         "container@": {
-                            controller: 'AboutController',
-                            templateUrl: 'about/about.tpl.html'
+                            controller: 'newsletterMakerController',
+                            templateUrl: 'newsletterMaker/newsletterMaker.tpl.html'
                         }
                     },
                     data: {
-                        pageTitle: 'About'
+                        pageTitle: 'newsletterMaker'
                     }
                 });
         }]);
 
-    app.controller('AboutController', ['$scope', '$log','$state','$modal', '$templateCache', '$compile', function ($scope, $log, $state, $modal, $templateCache, $compile) {
-        $log.info('App:: Starting AboutController');
+    app.controller('newsletterMakerController', ['$scope', '$log','$state','$modal', '$templateCache', '$compile', function ($scope, $log, $state, $modal, $templateCache, $compile) {
+        $log.info('App:: Starting newsletterMakerController');
 
         var init = function () {
             $scope.model = {};
@@ -51,18 +51,18 @@
         $scope.models = {
             selected: null,
             templates: [
-                {name: "Header", type: "header1", id: 1, template: 'about/templates/Header1.tpl.html' },
-                {name: "Disclaimer", type: "disclaimer1", id: 1, template: 'about/templates/Disclaimer1.tpl.html'},
-                {name: "Footer", type: "footer1", id: 1, template: 'about/templates/Footer1.tpl.html'},
+                {name: "Header", type: "header1", id: 1, template: 'newsletterMaker/templates/Header1.tpl.html' },
+                {name: "Disclaimer", type: "disclaimer1", id: 1, template: 'newsletterMaker/templates/Disclaimer1.tpl.html'},
+                {name: "Footer", type: "footer1", id: 1, template: 'newsletterMaker/templates/Footer1.tpl.html'},
                 {name: "Image 580", type: "image580", id: 1, template: '',link:'http://str.yeeday.net/img/cm/es/mqu/no_image.png'},
                 {name: "Image 270", type: "image270", id: 1, template: '', link:'http://str.yeeday.net/img/cm/es/mqu/no_image.png'},
-                {name: "Simple Text", type: "simpleText", id: 1, template: 'about/templates/simpleText.tpl.html'},
+                {name: "Simple Text", type: "simpleText", id: 1, template: 'newsletterMaker/templates/simpleText.tpl.html'},
                 {name: "Html", type: "freeHtml", id: 1, template: '', html:'<table width="580" border="0" cellpadding="0" cellspacing="0" style="text-align: center;"><tbody><tr><td style="color: rgb(82, 79, 79);text-align: left;"><h1>Bienvenido al CLUB VIP</h1></td></tr></tbody></table><table width="100%" border="0" cellpadding="0" cellspacing="0" style="color: rgb(34, 34, 34);background-color: rgb(255, 255, 255);text-align: center;"><tbody><tr><td width="100%"> <table width="580" border="0" cellpadding="0" cellspacing="0" style="text-align: center;"><tbody><tr><td style="color: rgb(107, 107, 107);text-align: left;"><a href="http://hogar.mequedouno.com" target="_blank" style="color: rgb(248, 135, 0);"><strong>Tienes Envío Gratis hasta final de año</strong></a><br>Hola, eres un cliente VIP en MeQuedoUno. Y nos apetece compartirlo contigo. En algún momento de nuestra breve pero intensa historia has estado ahí, dándolo todo y disfrutando de las oportunidades más tentadoras, por eso, ahora que se acerca nuestro Sexto Aniversario<strong> ¡queremos celebrarlo contigo!</strong></td></tr></tbody></table></td></tr></tbody></table>'},
-                {name: "Crosseling", type: "crosseling", template: 'about/templates/Crosseling1.tpl.html', id: 1},
-                {name: "MOButton", type: "verMejoresB", template: 'about/templates/VerMejoresB.tpl.html',id: 1},
-                {name: "¿Eres fan?", type: "fan", template: 'about/templates/Fan.tpl.html',id: 1},
-                {name: "Barra", type: "bar", template: 'about/templates/Bar.tpl.html',id: 1},
-                {name: "Apps", type: "apps", template: 'about/templates/Apps.tpl.html',id: 1},
+                {name: "Crosseling", type: "crosseling", template: 'newsletterMaker/templates/Crosseling1.tpl.html', id: 1},
+                {name: "MOButton", type: "verMejoresB", template: 'newsletterMaker/templates/VerMejoresB.tpl.html',id: 1},
+                {name: "¿Eres fan?", type: "fan", template: 'newsletterMaker/templates/Fan.tpl.html',id: 1},
+                {name: "Barra", type: "bar", template: 'newsletterMaker/templates/Bar.tpl.html',id: 1},
+                {name: "Apps", type: "apps", template: 'newsletterMaker/templates/Apps.tpl.html',id: 1},
                 {name: "Contenedor", type: "container", id: 1, columns: [[], []]},
                 {name: "Contenedor 3", type: "container3", id: 1, columns: [[],[],[]]}
             ],
@@ -72,19 +72,19 @@
                         "name": "Disclaimer",
                         "type": "disclaimer1",
                         "id": 1,
-                        "template": "about/templates/Disclaimer1.tpl.html"
+                        "template": "newsletterMaker/templates/Disclaimer1.tpl.html"
                     },
                     {
                         "name": "Barra",
                         "type": "bar",
-                        "template": "about/templates/Bar.tpl.html",
+                        "template": "newsletterMaker/templates/Bar.tpl.html",
                         "id": 1
                     },
                     {
                         "name": "Header",
                         "type": "header1",
                         "id": 1,
-                        "template": "about/templates/Header1.tpl.html"
+                        "template": "newsletterMaker/templates/Header1.tpl.html"
                     },
                     {
                         "name": "Image 580",
@@ -96,13 +96,13 @@
                     {
                         "name": "¿Eres fan?",
                         "type": "fan",
-                        "template": "about/templates/Fan.tpl.html",
+                        "template": "newsletterMaker/templates/Fan.tpl.html",
                         "id": 1
                     },
                     {
                         "name": "Crosseling",
                         "type": "crosseling",
-                        "template": "about/templates/Crosseling1.tpl.html",
+                        "template": "newsletterMaker/templates/Crosseling1.tpl.html",
                         "id": 1
                     },
                     {
@@ -172,20 +172,20 @@
                     {
                         "name": "Apps",
                         "type": "apps",
-                        "template": "about/templates/Apps.tpl.html",
+                        "template": "newsletterMaker/templates/Apps.tpl.html",
                         "id": 1
                     },
                     {
                         "name": "Barra",
                         "type": "bar",
-                        "template": "about/templates/Bar.tpl.html",
+                        "template": "newsletterMaker/templates/Bar.tpl.html",
                         "id": 2
                     },
                     {
                         "name": "Footer",
                         "type": "footer1",
                         "id": 1,
-                        "template": "about/templates/Footer1.tpl.html"
+                        "template": "newsletterMaker/templates/Footer1.tpl.html"
                     }
                 ]
             }
@@ -203,7 +203,7 @@
 
         $scope.setImage = function () {
             $scope.modalInstance = $modal.open({
-                templateUrl: 'about/setImage.modal.tpl.html',
+                templateUrl: 'newsletterMaker/setImage.modal.tpl.html',
                 size: 'md',
                 scope: $scope
             });
@@ -211,7 +211,7 @@
         };
         $scope.setSimpleText = function () {
             $scope.modalInstance = $modal.open({
-                templateUrl: 'about/setSimpleText.modal.tpl.html',
+                templateUrl: 'newsletterMaker/setSimpleText.modal.tpl.html',
                 size: 'md',
                 scope: $scope
             });
@@ -219,7 +219,7 @@
         };
         $scope.setFreeHtml = function () {
             $scope.modalInstance = $modal.open({
-                templateUrl: 'about/setFreeHtml.modal.tpl.html',
+                templateUrl: 'newsletterMaker/setFreeHtml.modal.tpl.html',
                 size: 'lg',
                 scope: $scope
             });
@@ -231,7 +231,7 @@
         };
 
         $scope.getCss = function () {
-            return $templateCache.get('about/templates/head.tpl.html');
+            return $templateCache.get('newsletterMaker/templates/head.tpl.html');
         };
 
         $scope.returnHtml = function(item) {
@@ -384,7 +384,7 @@
         };
     }]);
 
-}(angular.module("pushmeBaby.about", [
+}(angular.module("pushmeBaby.newsletterMaker", [
     'ui.router',
     'dndLists',
     'textAngular',
