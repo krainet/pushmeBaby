@@ -5,7 +5,7 @@
  * automatically.
  */
 describe('chart section', function () {
-    beforeEach(module('pushmeBaby.scheduller'));
+    beforeEach(module('pushmeBaby.pushhistory'));
 
     it('should have a dummy test', inject(function() {
         expect(true).toBeTruthy();

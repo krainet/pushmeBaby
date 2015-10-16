@@ -26,11 +26,29 @@
                 </select>
             </div>
         </div>
-        <button type="button" class="btn btn-default btn-lg" ng-click="">Load</button>
+        <div class="col-md-4">
+            <button type="button" class="btn btn-lg  btn-info" ng-click="new()">New</button>
 
-        <button type="button" class="btn btn-default btn-lg" ng-click="preview()">Preview</button>
+            <button type="button" class="btn btn-default btn-lg" ng-click="loadNews()">Load</button>
 
-        <button type="button" class="btn btn-default btn-lg">Save</button>
+            <button type="button" class="btn btn-default btn-lg" ng-click="preview()">Preview</button>
+
+            <button type="button" class="btn btn-default btn-lg" ng-click="save()">Save</button>
+
+            <label>Fecha prevista de envio</label>
+            <p class="input-group col-md-6">
+
+                <input type="text" name="date_picker"
+                       class="form-control input-lg" datepicker-popup="{{datepicker.format}}"
+                       ng-model="data.expectedDate" is-open="datepicker.opened"
+                       datepicker-options="datepicker.dateOptions" date-disabled="disabled(date, mode)"
+                       close-text="Close" placeholder="Fecha prevista de envio"/>
+                <span class="input-group-btn">
+                    <button type="button" class="btn btn-lg" ng-click="openDatepicker($event)"><i class="fa fa-calendar"></i></button>
+                </span>
+            </p>
+        </div>
+
     </div>
 </div>
 

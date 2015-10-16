@@ -1,9 +1,10 @@
 (function (app) {
-
     app.config(['$stateProvider', '$urlRouterProvider', '$httpProvider', '$locationProvider',
         function ($stateProvider, $urlRouterProvider, $httpProvider, $locationProvider) {
             $urlRouterProvider.otherwise('/');
             $httpProvider.interceptors.push('cInterceptor');
+            $httpProvider.defaults.useXDomain = true;
+            delete $httpProvider.defaults.headers.common['X-Requested-With'];
 
             //Root view, very important resolve data async before states
             $stateProvider
@@ -71,13 +72,19 @@
 
 }(angular.module("pushmeBaby", [
     'ngResource',
+    'ngSanitize',
     'globalService',
     'pushmeBaby.home',
     'pushmeBaby.newsletterMaker',
+    'pushmeBaby.newsletterScheduler',
+    'pushmeBaby.newsletterTemplateMaker',
     'pushmeBaby.apitest',
     'pushmeBaby.chart',
-    'pushmeBaby.scheduller',
+    'pushmeBaby.scheduler',
     'pushmeBaby.simplepush',
+    'pushmeBaby.devicetoken',
+    'pushmeBaby.segment',
+    'pushmeBaby.pushhistory',
     'ui.bootstrap',
     'templates-app',
     'templates-common',

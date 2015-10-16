@@ -2,15 +2,15 @@
     <tbody>
     <tr>
         <td>
-            <img src="{{item.link}}" width="270px">
+            <img src="{{item.values.link}}" width="270px">
         </td>
     </tr>
-    <tr ng-if="item.footerText != '' ">
+    <tr ng-if="item.values.footerText != '' ">
         <table width="270" border="0" cellpadding="0" cellspacing="0">
             <tbody>
                 <tr>
-                    <td style="font-family: Helvetica, arial, sans-serif; font-size: 14px; color: #ffffff; padding-left: 10px;"  align="left"  bgcolor=" {{!item.color ? data.color : item.color}}" ><strong>{{item.footerText}}</strong></td>
-                    <td style="font-family: Helvetica, arial, sans-serif; font-size: 16px; color: #ffffff;" align="right" ng-if="footerDiscount != '' "  bgcolor=" {{!item.color ? data.color : item.color}}" >{{item.footerDiscount}}</td>
+                    <td style="font-family: Helvetica, arial, sans-serif; font-size: 14px; color: #ffffff; padding-left: 10px;"  align="left"  bgcolor=" {{!item.values.color ? data.color : item.values.color}}" ><strong>{{item.values.footerText}}</strong></td>
+                    <td style="font-family: Helvetica, arial, sans-serif; font-size: 16px; color: #ffffff;" align="right" ng-if="footerDiscount != '' "  bgcolor=" {{!item.values.color ? data.color : item.values.color}}" >{{item.values.footerDiscount}}</td>
                 </tr>
             </tbody>
         </table>

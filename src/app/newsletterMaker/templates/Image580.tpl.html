@@ -16,17 +16,17 @@
                                 <tbody>
                                 <tr>
                                     <td width="580" align="center" class="devicewidth" style=" color: white; font-size: 9px; font-weight: bold; font-family: Arial, sans-serif;">
-                                        <img alt=" {{item.alt}} " src=" {{item.link}}  " border="0" width="580" style="display:block; border:none; outline:none; text-decoration:none;" class="banner">
+                                        <img alt=" {{item.values.alt}} " src=" {{item.values.link}}  " border="0" width="580" style="display:block; border:none; outline:none; text-decoration:none;" class="banner">
                                     </td>
                                 </tr>
 
-                                <tr ng-if="item.footerText" ng-if="item.footerDiscount" >
-                                    <td width="580" class="fullWidth" bgcolor=" {{!item.color ? data.color : item.color}} " height="50">
+                                <tr ng-if="item.values.footerText" ng-if="item.values.footerDiscount" >
+                                    <td width="580" class="fullWidth" bgcolor=" {{!item.values.color ? data.color : item.values.color}} " height="50">
                                         <table  border="0" cellpadding="0" cellspacing="0" width="580" class="fullWidth">
                                             <tbody> <tr>
-                                                <td ng-if="item.footerText"  width="170" style="font-family: Helvetica, arial, sans-serif; font-size: 14px; color: #ffffff; padding-left: 10px;" align=" {{item.footerDiscount ? 'left' : 'center' }}" height="50"> <strong>  {{item.footerText}}</strong> </td>
+                                                <td ng-if="item.values.footerText"  width="170" style="font-family: Helvetica, arial, sans-serif; font-size: 14px; color: #ffffff; padding-left: 10px;" align=" {{item.values.footerDiscount ? 'left' : 'center' }}" height="50"> <strong>  {{item.values.footerText}}</strong> </td>
 
-                                                <td  ng-if="item.footerDiscount" style="font-family: Helvetica, arial, sans-serif; font-size: 16px; color: #ffffff;" height="50" align="{{item.footerText ? 'right' : 'center' }}" height="50">  {{item.footerDiscount}}  </td>
+                                                <td  ng-if="item.values.footerDiscount" style="font-family: Helvetica, arial, sans-serif; font-size: 16px; color: #ffffff;" height="50" align="{{item.values.footerText ? 'right' : 'center' }}" height="50">  {{item.values.footerDiscount}}  </td>
                                             </tr>
                                             </tbody>
                                         </table>

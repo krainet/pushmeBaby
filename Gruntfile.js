@@ -18,7 +18,6 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-karma');
     grunt.loadNpmTasks('grunt-ng-annotate');
     grunt.loadNpmTasks('grunt-html2js');
-    //grunt.loadNpmTasks('grunt-express');
 
     //To remove hashtag from grunt watch! :D Amazing!
     grunt.loadNpmTasks('grunt-contrib-connect');
@@ -95,6 +94,7 @@ module.exports = function (grunt) {
                 'vendor/textAngular/dist/textAngular-rangy.min.js',
                 'vendor/textAngular/dist/textAngular.min.js',
                 'vendor/ngSticky/dist/sticky.min.js',
+
             ],
             css: [
                 'vendor/metisMenu/dist/metisMenu.min.css',
