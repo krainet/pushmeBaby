@@ -376,7 +376,7 @@
                     shop: $scope.data.shop,
                     expectedDate: $scope.data.expectedDate,
                     json: JSON.stringify({model : $scope.models.dropzones.A}),
-                    html: JSON.stringify($scope.constructNews())
+                    html: $scope.constructNews()
                 };
                 newsletterMakerService.saveNewsLetter($scope.data.id, params).then(function (data) {
 
