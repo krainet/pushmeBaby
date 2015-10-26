@@ -413,7 +413,7 @@
                     $scope.models.selected.values.special = false;
                     $scope.models.selected.values.link=link + '/' +data.id_image +'-p-thickbox.jpg';
                     $scope.models.selected.values.alt = data.mq_bill_name;
-                    $scope.models.selected.values.linkDestination = 'http://'+ data.shop_name +'.mequedouno.com/product.php?id_product=' + data.id_product + '&utm_source=Newsleter&utm_medium=email&utm_campaign=NL_' + data.shop + '_' +data.id_product+ '&ekey=[EMV FIELD]EMAIL_ORIGINE[EMV /FIELD]';
+                    $scope.models.selected.values.linkDestination = 'https://'+ data.shop_name +'.mequedouno.com/product.php?id_product=' + data.id_product + '&utm_source=Newsleter&utm_medium=email&utm_campaign=NL_' + data.shop + '_' +data.id_product+ '&ekey=[EMV FIELD]EMAIL_ORIGINE[EMV /FIELD]';
                 }, function (err) {
                     $log.error(err);
                 });
