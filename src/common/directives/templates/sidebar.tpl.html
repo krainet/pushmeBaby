@@ -8,56 +8,43 @@
             <li ui-sref-active>
                 <a ui-sref="root.chart"><i class="fa fa-bar-chart-o fa-fw"></i> Stats<span></span></a>
             </li>
-            <li ui-sref-active>
-                <a ui-sref="root.simplepush"><i class="fa fa-edit fa-fw"></i> Single Push</a>
-            </li>
-            <li ui-sref-active>
-                <a ui-sref="root.segment"><i class="fa fa-arrows-h"></i> Segments</a>
-            </li>
-            <li ui-sref-active>
-                <a ui-sref="root.scheduller"><i class="fa fa-table fa-fw"></i> Scheduller</a>
-            </li>
-            <li ui-sref-active>
-                <a ui-sref="root.devicetoken"><i class="fa fa-tablet fa-fw"></i></i> Devicetoken</a>
-            </li>
-            <li ng-class="{active: collapseVar==1}" ui-sref-active>
-                <a href="" ng-click="check(1)"><i class="fa fa-wrench fa-fw"></i> UI Elements<span
+
+            <li ng-class="{active: collapseVar==1}">
+                <a href="" ng-click="check(1)"><i class="fa fa-sitemap fa-fw"></i> Push<span
                         class="fa arrow"></span></a>
                 <ul class="nav nav-second-level" collapse="collapseVar!=1">
                     <li ui-sref-active>
-                        <a ui-sref="root.home">Panels and Wells</a>
+                        <a ui-sref="root.simplepush"><i class="fa fa-edit fa-fw"></i> Single Push</a>
+                    </li>
+                    <li ui-sref-active>
+                        <a ui-sref="root.segment"><i class="fa fa-arrows-h"></i> Segments</a>
+                    </li>
+                    <li ui-sref-active>
+                        <a ui-sref="root.scheduler"><i class="fa fa-table fa-fw"></i> Push scheduler</a>
+                    </li>
+                    <li ui-sref-active>
+                        <a ui-sref="root.devicetoken"><i class="fa fa-tablet fa-fw"></i> Devicetoken</a>
                     </li>
                 </ul>
-                <!-- /.nav-second-level -->
             </li>
             <li ng-class="{active: collapseVar==2}">
-                <a href="" ng-click="check(2)"><i class="fa fa-sitemap fa-fw"></i> Options Menú<span
+                <a href="" ng-click="check(2)"><i class="fa fa-envelope fa-fw"></i> Newsletter<span
                         class="fa arrow"></span></a>
                 <ul class="nav nav-second-level" collapse="collapseVar!=2">
                     <li ui-sref-active>
-                        <a href="">Second Level Item</a>
+                        <a ui-sref="root.newsletterMaker"><i class="fa fa-industry"></i> Newsletter Maker</a>
                     </li>
-
-<!--                    <li ng-init="third=!third" ng-class="{active: multiCollapseVar==3}">
-                        <a href="" ng-click="multiCheck(3)">Third Level <span class="fa arrow"></span></a>
-                        <ul class="nav nav-third-level" collapse="multiCollapseVar!=3">
-                            <li>
-                                <a href="">Third Level Item</a>
-                            </li>
-                            <li>
-                                <a href="">Third Level Item</a>
-                            </li>
-                        </ul>
-                        &lt;!&ndash; /.nav-third-level &ndash;&gt;
-                    </li>-->
+                    <li ui-sref-active>
+                        <a ui-sref="root.newsletterScheduler"><i class="fa fa-table"></i> Newsletter scheduler</a>
+                    </li>
+                    <li ui-sref-active>
+                        <a ui-sref="root.newsletterTemplateMaker"><i class="fa fa-link"></i> Template Maker</a>
+                    </li>
                 </ul>
-                <!-- /.nav-second-level -->
-
             </li>
         </ul>
     </div>
-    <!-- /.sidebar-collapse -->
-</div> 
+</div>
 
 
 

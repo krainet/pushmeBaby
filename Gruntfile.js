@@ -73,6 +73,7 @@ module.exports = function (grunt) {
         vendor_files: {
             js: [
                 'vendor/angular/angular.js',
+                'vendor/textAngular/dist/textAngular-sanitize.min.js',
                 'vendor/angular-animate/angular-animate.js',
                 'vendor/angular-aria/angular-aria.js',
                 'vendor/angular-material/angular-material.js',
@@ -89,13 +90,19 @@ module.exports = function (grunt) {
                 'vendor/Chart.js/Chart.min.js',
                 'vendor/angular-chart.js/dist/angular-chart.js',
                 'vendor/ng-table/dist/ng-table.js',
-                'vendor/angular-sanitize/angular-sanitize.js'
+                'vendor/angular-drag-and-drop-lists/angular-drag-and-drop-lists.js',
+                'vendor/textAngular/dist/textAngular-rangy.min.js',
+                'vendor/textAngular/dist/textAngular.min.js',
+                'vendor/ngSticky/dist/sticky.min.js',
+
             ],
             css: [
                 'vendor/metisMenu/dist/metisMenu.min.css',
                 'vendor/angular-loading-bar/build/loading-bar.min.css',
                 'vendor/angular-chart.js/dist/angular-chart.css',
-                'vendor/ng-table/dist/ng-table.css'
+                'vendor/ng-table/dist/ng-table.css',
+                'vendor/font-awesome/css/font-awesome.css',
+                'vendor/textAngular/dist/textAngular.css',
             ],
             css2: [
 

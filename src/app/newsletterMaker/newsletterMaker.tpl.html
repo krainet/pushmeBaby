@@ -1,0 +1,55 @@
+<h1>Newsletter Maker</h1>
+
+<div class="alert alert-success">
+    <strong>Instructions:</strong>
+    Build your perfect Newsletter using drag &amp; drop! Have fun!
+    That can not be considered a job...
+    <!--<content-Item content="content"></content-Item>-->
+</div>
+
+<div class="col-md-12">
+    <div class="row">
+
+        <div class="col-md-8">
+            <div class="form-group">
+                <label>Newsletter</label>
+                <input class="form-control" placeholder="Nom Newslater" ng-model="data.name">
+                <label>Selecciona tienda objetivo</label>
+                <select class="form-control" ng-model="data.shop">
+                    <option  value="mqu" >Tech</option>
+                    <option  value="mqc" >Chic</option>
+                    <option  value="mqd" >Deporte</option>
+                    <option  value="mqk" >Kids</option>
+                    <option  value="mqh" >Hogar</option>
+                    <option  value="mqv" >Vino</option>
+                    <option  value="mqs" >Super</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <button type="button" class="btn btn-lg  btn-info" ng-click="new()">New</button>
+
+            <button type="button" class="btn btn-default btn-lg" ng-click="loadNews()">Load</button>
+
+            <button type="button" class="btn btn-default btn-lg" ng-click="preview()">Preview</button>
+
+            <button type="button" class="btn btn-default btn-lg" ng-click="save()">Save</button>
+
+            <label>Fecha prevista de envio</label>
+            <p class="input-group col-md-6">
+
+                <input type="text" name="date_picker"
+                       class="form-control input-lg" datepicker-popup="{{datepicker.format}}"
+                       ng-model="data.expectedDate" is-open="datepicker.opened"
+                       datepicker-options="datepicker.dateOptions" date-disabled="disabled(date, mode)"
+                       close-text="Close" placeholder="Fecha prevista de envio"/>
+                <span class="input-group-btn">
+                    <button type="button" class="btn btn-lg" ng-click="openDatepicker($event)"><i class="fa fa-calendar"></i></button>
+                </span>
+            </p>
+        </div>
+
+    </div>
+</div>
+
+<div class="dragNews" ng-include="'newsletterMaker/newsletterMakerBase.tpl.html'"></div>

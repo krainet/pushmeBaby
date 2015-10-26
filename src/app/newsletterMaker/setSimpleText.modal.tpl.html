@@ -1,0 +1,25 @@
+<div>
+    <div class="modal-header">
+        <h3 class="modal-title">{{models.selected.name}}</h3>
+    </div>
+
+    <div class="modal-body">
+
+        <label>Titol</label>
+        <input class="form-control" placeholder="Titol" ng-model="models.selected.title">
+
+        <label>Color personalitzat (Titol)</label>
+        <input class="form-control" placeholder="Ex. {{data.color}}" ng-model="models.selected.titleColor">
+
+        <label>Text principal. Posa entre {} el text a resaltar.</label>
+        <textarea class="form-control" rows="3" ng-model="models.selected.text"></textarea>
+
+        <label>Url destination</label>
+        <input class="form-control" placeholder="Enter the destination url" ng-model="models.selected.linkDestination">
+
+        <label>Color personalitzat (Ressaltat)</label>
+        <input class="form-control" placeholder="Ex. {{data.color}}" ng-model="models.selected.colorText">
+
+    </div>
+</div>
+

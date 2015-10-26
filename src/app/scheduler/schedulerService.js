@@ -1,15 +1,15 @@
 /* 
- * Scheduller service
+ * scheduler service
  */
-angular.module('schedullerService', [])
-        .factory('schedullerService', ['$resource', '$q', '$log',
+angular.module('schedulerService', [])
+        .factory('schedulerService', ['$resource', '$q', '$log',
             function ($resource, $q, $log) {
                 return {
                     api: function (extra_route) {
                         if (!extra_route) {
                             extra_route = '';
                         }
-                        return $resource(API_URL + '/schedullers/' + extra_route, {}, {
+                        return $resource(API_URL + '/schedulers/' + extra_route, {}, {
                             query: {
                                 timeout: 15000
                             },
@@ -23,7 +23,7 @@ angular.module('schedullerService', [])
                             }
                         });
                     },
-                    getAllSchedullers: function () {
+                    getAllschedulers: function () {
                         var def = $q.defer();
                         this.api().get({}, {}, function (data) {
                             def.resolve(data);

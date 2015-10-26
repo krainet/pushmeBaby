@@ -1,15 +1,31 @@
 (function (app) {
-
     app.config(['$stateProvider', '$urlRouterProvider', '$httpProvider', '$locationProvider',
         function ($stateProvider, $urlRouterProvider, $httpProvider, $locationProvider) {
             $urlRouterProvider.otherwise('/');
             $httpProvider.interceptors.push('cInterceptor');
+            $httpProvider.defaults.useXDomain = true;
+            delete $httpProvider.defaults.headers.common['X-Requested-With'];
 
             //Root view, very important resolve data async before states
             $stateProvider
                     .state('root', {
                         url: '',
                         abstract: true,
+                        resolve: {
+                            /*load_data: (['globalService', '$q', '$log',
+                                function (globalService, $q, $log) {
+                                    $log.warn('App::ResolveData::');
+
+                                    var def = $q.defer();
+                                    globalService.api('posts/1').get(function (data) {
+                                        def.resolve(data);
+                                        $log.warn(data);
+                                    }, function (err) {
+                                        def.reject(err);
+                                    });
+                                    return def.promise;
+                                }])*/
+                        },
                         views: {
                             'header': {
                                 templateUrl: 'header.tpl.html',
@@ -59,10 +75,12 @@
     'ngSanitize',
     'globalService',
     'pushmeBaby.home',
-    'pushmeBaby.about',
+    'pushmeBaby.newsletterMaker',
+    'pushmeBaby.newsletterScheduler',
+    'pushmeBaby.newsletterTemplateMaker',
     'pushmeBaby.apitest',
     'pushmeBaby.chart',
-    'pushmeBaby.scheduller',
+    'pushmeBaby.scheduler',
     'pushmeBaby.simplepush',
     'pushmeBaby.devicetoken',
     'pushmeBaby.segment',
@@ -76,5 +94,7 @@
     'genericDirectives',
     'ngAnimate',
     'chart.js',
-    'ngTable'
+    'ngTable',
+    'textAngular',
+    'sticky'
 ])));

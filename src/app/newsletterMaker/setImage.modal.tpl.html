@@ -1,0 +1,52 @@
+<div>
+    <div class="modal-header">
+        <h3 class="modal-title">{{models.selected.name}}px WIDTH!</h3>
+    </div>
+    <div class="modal-body">
+        <button type="button" class="btn btn-default" ng-click="clickSpecials()">Seleccionar Imagen por SpecialDay</button>
+        <button type="button" class="btn btn-default" ng-click="clickOffers()">Seleccionar Imagen por Oferta</button>
+        <div ng-if="status.openSpecials">
+            <div uib-collapse="status.openSpecials">
+                <p>Selecciona SpecialDay</p>
+                <div class="form-group">
+                    <select class="form-control" id="sel1" ng-model="models.selected.values.special">
+                        <option value="">---Seleciona un SpecialDay---</option>
+                        <option ng-repeat="sp in data.specials" value="{{sp.id_specialday}}">{{sp.id_specialday}} {{sp.name}}</option>
+                    </select>
+                </div>
+
+                <div ng-if="models.selected.values.special">
+                    <div ng-repeat="sp in data.specials"  ng-if="sp.id_specialday==models.selected.values.special">
+                        <div ng-init="models.selected.values.link='https://str.yeeday.net/img/sp/'+sp.id_specialday+'/'+sp.img_path"></div>
+                        <div ng-init="models.selected.values.alt=sp.name"></div>
+                        <div ng-init="models.selected.values.offer = false"></div>
+                        <div ng-init="models.selected.values.linkDestination='https://'+sp.shop_name+'.mequedouno.com/specialday.php?id_spd='+sp.id_specialday+'&utm_source=Newsleter&utm_medium=email&utm_campaign=NL_'+sp.shop+'_'+sp.id_specialday+'_ORDEN&ekey=[EMV FIELD]EMAIL_ORIGINE[EMV /FIELD]'"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div ng-if="status.openOffers">
+            <div uib-collapse="status.openOffers">
+                <p>Busqueda por oferta</p>
+                <div class="form-group">
+                    <input class="form-control" placeholder="Id offer" ng-model="models.selected.values.offer">
+                    <button type="button" class="btn btn-default" ng-click="getProduct()">Buscar</button>
+                </div>
+            </div>
+        </div>
+
+        <p>Url Image</p>
+        <input class="form-control" placeholder="Enter an Image source" ng-model="models.selected.values.link">
+        <p>Alt Image</p>
+        <input class="form-control" placeholder="Ex: Super cool Image!" ng-model="models.selected.values.alt">
+        <p>Url destination</p>
+        <input class="form-control" placeholder="Enter the destination url" ng-model="models.selected.values.linkDestination">
+        <p>Footer color</p>
+        <input type="color" id="html5colorpicker" class="form-control"  ng-model="models.selected.values.color">
+        <p>Footer text</p>
+        <input class="form-control" placeholder="Ex. Megaventa" ng-model="models.selected.values.footerText">
+        <p>Footer discount</p>
+        <input class="form-control" placeholder="Ex. 80% Dto." ng-model="models.selected.values.footerDiscount">
+    </div>
+</div>
+

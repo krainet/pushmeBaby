@@ -1,0 +1,39 @@
+<div>
+    <div class="modal-header">
+        <h3 class="modal-title">NewsLetters</h3>
+    </div>
+
+    <div class="modal-body" >
+        <table ng-table="vm.tableParams" class="table table-striped table-bordered table-hover" show-filter="true">
+            <tr ng-repeat="sch in $data">
+                <td title="'#id'" filter="{ id: 'number'}" sortable="'id'" style="width:2%;">
+                    {{sch.id}}</td>
+                <td title="'Nombre'" filter="{ name: 'text'}" sortable="'name'">
+                    {{sch.name}}</td>
+                <td title="'Tienda'" filter="{ shop: 'text'}" sortable="'shop'" style="width:7%;">
+                    {{sch.shop}}</td>
+                <td title="'Creado'" filter="{ createdAt: 'text'}" sortable="'createdAt'" style="width:15%;">
+                    {{sch.createdAt|date:'yyyy-MM-dd'}}</td>
+                <td title="'Actualizado'" filter="{ updatedAt: 'text'}" sortable="'updatedAt'" style="width:15%;">
+                    {{sch.updatedAt|date:'yyyy-MM-dd'}}</td>
+                <td title="'Fecha P. Envio'" filter="{ expectedDate: 'text'}" sortable="'expectedDate'" style="width:15%;">
+                {{sch.expectedDate|date:'yyyy-MM-dd'}}</td>
+                <td title="'E.'" filter="{ sent: 'text'}" sortable="'sent'" style="width:5%;" class="text-center">
+                    <h6 style="{{sch.sent?'color:green;':'color:red;'}}"><i ng-class="sch.sent?'fa fa-check-circle':'fa fa-times'"></i> {{sch.sent && 'Si' || 'No'}}</h6>
+                </td>
+                <td title="'Actions'" style="width:15%;" class="text-center">
+                    <button class="btn btn-info btn-xs" tooltip="Editar NewsLetter" tooltip-placement="left" tooltip-trigger="mouseenter" ng-click="edit(sch.id)">
+                        <i class="fa fa-pencil-square-o"></i>
+                    </button>
+                    <button class="btn btn-info btn-xs" tooltip="Duplicar NewsLetter" tooltip-placement="left" tooltip-trigger="mouseenter" ng-click="duplicate(sch.id)">
+                        <i class="fa fa-files-o"></i>
+                    </button>
+                    <button class="btn btn-danger btn-xs" tooltip="Eliminar NewsLetter" tooltip-placement="left" tooltip-trigger="mouseenter" ng-click="delete(sch.id)">
+                        <i class="fa fa-trash-o"></i>
+                    </button>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
