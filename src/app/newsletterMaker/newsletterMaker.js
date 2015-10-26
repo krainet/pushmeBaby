@@ -403,7 +403,7 @@
             $scope.getProduct = function(){
                 newsletterMakerService.getProduct($scope.models.selected.values.offer).then(function (data) {
                     $log.debug(data);
-                    var link = 'http://str.yeeday.net/img/p';
+                    var link = 'https://str.yeeday.net/img/p';
                     var id = data.id_image.toString().split('');
                     $log.debug(id);
                     angular.forEach(id, function(iddd) {
