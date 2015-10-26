@@ -11,12 +11,12 @@ angular.module('newsletterMakerService', [])
                             timeout: 15000
                         },
                         save: {
-                            withCredentials: true,
+                            withCredentials: false,
                             timeout: 15000,
                             method: 'POST'
                         },
                         update: {
-                            withCredentials: true,
+                            withCredentials: false,
                             timeout: 15000,
                             method: 'PUT'
                         },
