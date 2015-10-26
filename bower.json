@@ -46,5 +46,7 @@
     "angular-sanitize": "~1.4.6",
     "textAngular": "~1.4.6"
   },
-  "dependencies": {}
+  "dependencies": {
+    "ngSticky": "~1.8.4"
+  }
 }
