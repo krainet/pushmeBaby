@@ -91,6 +91,21 @@
             $scope.edit = function(id) {
                 $state.go('root.newsletterMaker', {'id_news' : id});
             };
+            $scope.new = function() {
+                var params = {
+                    name: 'Newsletter',
+                    shop: $scope.data.shop,
+                    json: JSON.stringify({model : []}),
+                    html: JSON.stringify('')
+                };
+                newsletterMakerService.createNewsLetter(params).then(function (data) {
+                    $log.debug(data);
+                    // loadModel(data);
+                    $state.go('root.newsletterMaker', {'id_news' : data.id});
+                }, function (err) {
+                    // def.reject(err);
+                });
+            };
 
         }]);
 

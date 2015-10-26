@@ -404,16 +404,16 @@
                 newsletterMakerService.getProduct($scope.models.selected.values.offer).then(function (data) {
                     $log.debug(data);
                     var link = 'http://str.yeeday.net/img/p';
-                    var id = data.id_product.toString().split('');
+                    var id = data.id_image.toString().split('');
                     $log.debug(id);
                     angular.forEach(id, function(iddd) {
                         link += '/' + iddd;
                     });
                     $log.debug(link);
                     $scope.models.selected.values.special = false;
-                    $scope.models.selected.values.link=link + '/' +data.id_product +'-p-thickbox.jpg';
+                    $scope.models.selected.values.link=link + '/' +data.id_image +'-p-thickbox.jpg';
                     $scope.models.selected.values.alt = data.mq_bill_name;
-                    $scope.models.selected.values.linkDestination = 'http://www.mequedouno.com/?id_product=' + data.id_product;
+                    $scope.models.selected.values.linkDestination = 'http://'+ data.shop_name +'.mequedouno.com/product.php?id_product=' + data.id_product + '&utm_source=Newsleter&utm_medium=email&utm_campaign=NL_' + data.shop + '_' +data.id_product+ '&ekey=[EMV FIELD]EMAIL_ORIGINE[EMV /FIELD]';
                 }, function (err) {
                     $log.error(err);
                 });

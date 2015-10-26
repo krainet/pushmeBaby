@@ -84,7 +84,7 @@ angular.module('newsletterMakerService', [])
                     var def = $q.defer();
                     this.api('nspecialday/0/0/' + offer).get({}, {}, function (data) {
                         $log.warn('Api::data::Get product from offer');
-                        def.resolve(data.data[0]);
+                        def.resolve(data.data);
                     }, function (err) {
                         def.reject(err);
                     });
