@@ -247,7 +247,6 @@
                             '</tbody> </table> ';
                         html +='</td> </tr> </tbody> </table> </td> </tr> </tbody> </table>';
 
-
                         break;
 
                     case 'image270':
@@ -336,20 +335,24 @@
                     '<img alt="pixel" src="https://pixel.monitor1.returnpath.net/pixel.gif?r=85afb1fc5f7afe43775452ccdb1a74b05fd9a6c5" width="1" height="1" style="line-height: 0px; display: block;">' +
                     '<table width="100%" bgcolor="#f7f7f7" cellpadding="0" cellspacing="0" border="0" id="backgroundTable" st-sortable="preheader"><tbody>';
 
+                var text = '';
                 angular.forEach($scope.models.dropzones.A, function (item) {
-                    html += '<tr><td width="100%" valign="top" align="center">';
-                    html += $scope.returnHtml(item);
-                    html += '</td></tr>';
+                    text += '<tr><td width="100%" valign="top" align="center">';
+                    text += $scope.returnHtml(item);
+                    text += '</td></tr>';
 
                 });
-
+                html += text;
                 html += '</table></body></html>';
-                return html.replace(/{{data.color}}/g,$scope.data.color);
+                text = text.replace(/(<([^>]+)>)/ig,"").trim();
+                text = text.replace(/\s /g, '');
+                text = text.replace(/&nbsp;/g, '');
+                return { html:html.replace(/{{data.color}}/g,$scope.data.color), text:text };
 
             };
             $scope.preview = function () {
                 var newWindow = window.open();
-                newWindow.document.write($scope.constructNews());
+                newWindow.document.write($scope.constructNews().html);
             };
 
             $scope.new = function () {
@@ -358,7 +361,8 @@
                     name: 'Newsletter',
                     shop: $scope.data.shop,
                     json: JSON.stringify({model : []}),
-                    html: JSON.stringify('')
+                    html: JSON.stringify(''),
+                    text: JSON.stringify('')
                 };
                 newsletterMakerService.createNewsLetter(params).then(function (data) {
                     $log.debug(data);
@@ -376,7 +380,8 @@
                     shop: $scope.data.shop,
                     expectedDate: $scope.data.expectedDate,
                     json: JSON.stringify({model : $scope.models.dropzones.A}),
-                    html: $scope.constructNews()
+                    html: $scope.constructNews().html,
+                    text: $scope.constructNews().text
                 };
                 newsletterMakerService.saveNewsLetter($scope.data.id, params).then(function (data) {
 
@@ -413,7 +418,7 @@
                     $scope.models.selected.values.special = false;
                     $scope.models.selected.values.link=link + '/' +data.id_image +'-p-thickbox.jpg';
                     $scope.models.selected.values.alt = data.mq_bill_name;
-                    $scope.models.selected.values.linkDestination = 'https://'+ data.shop_name +'.mequedouno.com/product.php?id_product=' + data.id_product + '&utm_source=Newsleter&utm_medium=email&utm_campaign=NL_' + data.shop + '_' +data.id_product+ '&ekey=[EMV FIELD]EMAIL_ORIGINE[EMV /FIELD]';
+                    $scope.models.selected.values.linkDestination = 'http://'+ data.shop_name +'.mequedouno.com/product.php?id_product=' + data.id_product + '&utm_source=Newsleter&utm_medium=email&utm_campaign=NL_' + data.shop + '_' +data.id_product+ '&ekey=[EMV FIELD]EMAIL_ORIGINE[EMV /FIELD]';
                 }, function (err) {
                     $log.error(err);
                 });
