@@ -346,7 +346,7 @@
                 html += '</table></body></html>';
                 text = text.replace(/(<([^>]+)>)/ig,"").trim();
                 text = text.replace(/\s /g, '');
-                //text = text.replace(/&nbsp;/g, '');
+                text = text.replace(/&nbsp;/g, '');
                 return { html:html.replace(/{{data.color}}/g,$scope.data.color), text:text };
 
             };
