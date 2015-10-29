@@ -122,7 +122,6 @@
                     $log.error(err);
                 });
             };
-
             init();
 
             $scope.$watch('models.dropzones', function(model) {
@@ -391,10 +390,7 @@
                 //return def.promise;
             };
         }]);
-    /* app.controller('modalNewsController', ['$scope', '$modalInstance', '$log', '$filter','$rootScope', 'news',
-     function ($scope, $modalInstance, $log, $filter, $rootScope, news) {
-     $log.debug(news);
-     }]);*/
+
     app.controller('modalSetImageController', ['$scope', '$modalInstance', '$log', '$filter','$rootScope', 'newsletterMakerService',
         function ($scope, $modalInstance, $log, $filter, $rootScope, newsletterMakerService) {
 
