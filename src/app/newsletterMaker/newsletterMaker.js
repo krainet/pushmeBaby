@@ -81,6 +81,8 @@
                 $scope.data.link = $scope.data.colorshops.mqu.link;
                 $scope.data.logo = $scope.data.colorshops.mqu.logo;
 
+                $scope.data.target = {};
+
                 $scope.datepicker = {};
                 $scope.datepicker.dateOptions = {formatYear: 'yy', startingDay: 1};
                 $scope.datepicker.format = 'dd-MM-yyyy';
@@ -110,6 +112,11 @@
                 $scope.data.name = json.name;
                 $scope.data.shop = json.shop;
                 $scope.data.json = json.json;
+                $scope.data.subject = json.subject;
+                $scope.data.target.account = json.account;
+                $scope.data.target.country = json.country;
+                $scope.data.target.replyToEmail = json.replyToEmail;
+                $scope.data.target.replyToLabel = json.replyToLabel;
                 $scope.models.dropzones.A = JSON.parse($scope.data.json).model;
                 $scope.data.expectedDate = json.expectedDate;
                 loadSpecials($scope.data.expectedDate);
@@ -378,6 +385,10 @@
                     name: $scope.data.name,
                     shop: $scope.data.shop,
                     expectedDate: $scope.data.expectedDate,
+                    account: $scope.data.target.account,
+                    country: $scope.data.target.country,
+                    replyToEmail: $scope.data.target.replyToEmail,
+                    replyToLabel: $scope.data.target.replyToLabel,
                     json: JSON.stringify({model : $scope.models.dropzones.A}),
                     html: $scope.constructNews().html,
                     text: $scope.constructNews().text

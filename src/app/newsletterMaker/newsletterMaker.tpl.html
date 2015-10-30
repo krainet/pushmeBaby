@@ -10,14 +10,30 @@
         <div class="panel panel-default">
             <div class="panel-heading">
                 <i class="fa fa-clock-o"></i> <strong>Newsletter Maker</strong>
+                <div style="float:right;">
+                    <button type="button"  title="New" class="btn btn-warning" ng-click="new()"><i class="fa fa-file-text-o"></i></button>
+
+                    <button type="button" title="Save" class="btn btn-success" ng-click="save()"> <i class="fa fa-floppy-o"></i></button>
+
+                    <button type="button" title="Preview" class="btn btn-danger" ng-click="preview()"> <i class="fa fa-eye"></i></button>
+
+                    <button type="button" title="Load More" class="btn btn-info" ng-click="loadNews()"><i class="fa fa-tasks"></i></button>
+                </div>
+
             </div>
             <div class="panel-body">
-                <div class="col-md-8">
+                <div class="form-group">
+                    <div class ="col-md-6">
+                        <label>Newsletter Name</label>
+                        <input class="form-control" placeholder="Nom Newsletter" ng-model="data.name">
+                    </div>
+                    <div class ="col-md-6">
+                        <label>Newsletter Subject</label>
+                        <input class="form-control" placeholder="Subject Newsletter" ng-model="data.subject">
+                    </div>
 
-                    <div class="form-group">
-                        <label>Newsletter</label>
-                        <input class="form-control" placeholder="Nom Newslater" ng-model="data.name">
-                        <label>Selecciona tienda objetivo</label>
+                    <div class ="col-md-4">
+                        <label>Tienda objetivo</label>
                         <select class="form-control" ng-model="data.shop">
                             <option  value="mqu" >Tech</option>
                             <option  value="mqc" >Chic</option>
@@ -28,41 +44,58 @@
                             <option  value="mqs" >Super</option>
                         </select>
                     </div>
-                </div>
-                <div class="col-md-4">
-                    <button type="button"  title="New" class="btn btn-lg  btn-info" ng-click="new()"><i class="fa fa-file-text-o"></i></button>
-
-                    <button type="button" title="Save" class="btn btn-success btn-lg" ng-click="save()"> <i class="fa fa-floppy-o"></i></button>
-
-                    <button type="button" title="Preview" class="btn btn-danger btn-lg" ng-click="preview()"> <i class="fa fa-eye"></i></button>
-
-                    <button type="button" title="Load More" class="btn btn-info btn-lg" ng-click="loadNews()"><i class="fa fa-tasks"></i></button>
+                    <div class ="col-md-4">
+                        <label>Cuenta objetivo</label>
+                        <select class="form-control" ng-model="data.target.account">
+                            <option  value="mqu" selected>Mequedouno</option>
+                            <option  value="hs" >HS</option>
+                        </select>
                     </div>
-                    &nbsp;
-                <div class="col-md-4">
-                    <p class="input-group" style="width: 200px;">
-                        <span class="input-group-btn">
+                    <div class ="col-md-4">
+                        <label>Pais objetivo</label>
+                        <select class="form-control" ng-model="data.target.country">
+                            <option  value="spain" selected>Spain</option>
+                            <option  value="br" >Brasil</option>
+                            <option  value="mx" >Mexico</option>
+                        </select>
+                    </div>
+                    <div class ="col-md-4">
+                        <label>ReplyTo Label</label>
+                        <input class="form-control" placeholder="Test" ng-model="data.target.replyToEmail">
+                    </div>
+                    <div class ="col-md-4">
+                        <label>ReplyTo email</label>
+                        <input class="form-control" placeholder="test@mequedouno.com" ng-model="data.target.replyToLabel">
+                    </div>
+                    <div class="col-md-4">
+                        <label>Fecha prevista de envio</label>
+                        <p class="input-group">
+
                             <input title="Fecha prevista de envio" type="text" name="date_picker"
-                                   class="form-control input-lg" datepicker-popup="{{datepicker.format}}"
+                                   class="form-control" datepicker-popup="{{datepicker.format}}"
                                    ng-model="data.expectedDate" is-open="datepicker.opened"
                                    datepicker-options="datepicker.dateOptions" date-disabled="disabled(date, mode)"
                                    close-text="Close" placeholder="Fecha prevista de envio"/>
-                            <button type="button" class="btn btn-info btn-lg" ng-click="openDatepicker($event)"><i class="fa fa-calendar"></i></button>
-                        </span>
-                    </p>
+
+                            <span class="input-group-btn">
+                                <button type="button" class="btn btn-info" ng-click="openDatepicker($event)"><i class="fa fa-calendar"></i></button>
+                            </span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <i class="fa fa-industry"></i> <strong>Drag & Drop here!</strong>
+                    </div>
+                    <div class="panel-body">
+                        <div class="dragNews" ng-include="'newsletterMaker/newsletterMakerBase.tpl.html'"></div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="row">
-        <div class="col-md-12">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <i class="fa fa-industry"></i> <strong>Drag & Drop here!</strong>
-                </div>
-                <div class="panel-body">
-                    <div class="dragNews" ng-include="'newsletterMaker/newsletterMakerBase.tpl.html'"></div>
-                </div>
-            </div>
-        </div>
-    </div>
+</div>
