@@ -18,12 +18,16 @@
                         <form role="form">
                             <div class="form-group">
                                 <label>Nombre del Push</label>
-                                <input class="form-control">
+                                <input class="form-control" type="text" ng-model="prod.push_name">
                                 <p class="help-block">Indica un nombre para guardar este push y poder repetirlo.</p>
                             </div>
                             <div class="form-group">
+                                <label>Título del Push</label>
+                                <input class="form-control" type="text" ng-model="prod.push_title">
+                            </div>
+                            <div class="form-group">
                                 <label>Texto del Push</label>
-                                <textarea class="form-control" rows="3"></textarea>
+                                <textarea class="form-control" rows="3" ng-model="prod.push_message"></textarea>
                             </div>
                         </form>
                     </div>
@@ -34,7 +38,7 @@
                             <label>Buscar por email</label>
                             <div class="form-group input-group">
                                 <span class="input-group-addon">@</span>
-                                <input type="text" class="form-control" placeholder="Email">
+                                <input type="text" class="form-control" placeholder="Email" ng-model="prod.email">
                                 <span class="input-group-btn">
                                     <button class="btn btn-default" type="button"><i class="fa fa-search"></i>
                                     </button>
@@ -43,7 +47,7 @@
                             <label>Buscar por idCustomer</label>
                             <div class="form-group input-group">
                                 <span class="input-group-addon">#</span>
-                                <input type="text" class="form-control" placeholder="IdCustomer">
+                                <input type="text" class="form-control" placeholder="IdCustomer" ng-model="prod.id_customer">
                                 <span class="input-group-btn">
                                     <button class="btn btn-default" type="button"><i class="fa fa-search"></i>
                                     </button>
@@ -53,17 +57,17 @@
                                 <label>Selección por Plataforma</label>
                                 <div class="checkbox">
                                     <label>
-                                        <input type="checkbox" value=""> <img src="assets/img/icons/android.png"> <span class="label label-info">Android</span>
+                                        <input type="checkbox" ng-model="prod.android_platform" ng-change="setPlatform(2)"> <img src="assets/img/icons/android.png"> <span class="label label-info">Android</span>
                                     </label>
                                 </div>
                                 <div class="checkbox">
                                     <label>
-                                        <input type="checkbox" value=""> &nbsp;<img src="assets/img/icons/apple.png"> &nbsp;<span class="label label-info">IOS</span>
+                                        <input type="checkbox" ng-model="prod.apple_platform" ng-change="setPlatform(1)"> &nbsp;<img src="assets/img/icons/apple.png"> &nbsp;<span class="label label-info">IOS</span>
                                     </label>
                                 </div>
                                 <div class="checkbox">
                                     <label>
-                                        <input type="checkbox" value=""> &nbsp;<img src="assets/img/icons/earth.png"> &nbsp;<span class="label label-info">Todos</span>
+                                        <input type="checkbox" ng-model="prod.all_platform" ng-change="setPlatform(999)"> &nbsp;<img src="assets/img/icons/earth.png"> &nbsp;<span class="label label-info">Todos</span>
                                     </label>
                                 </div>
                             </div>
@@ -154,12 +158,12 @@
                                 <label>Selección por Plataforma</label>
                                 <div class="checkbox">
                                     <label>
-                                        <input type="checkbox" value=""> <img src="assets/img/icons/android.png"> <span class="label label-info">Android</span>
+                                        <input type="checkbox" ng-model="dev.android_platform" ng-change="setDevPlatform(2)"> <img src="assets/img/icons/android.png"> <span class="label label-info">Android</span>
                                     </label>
                                 </div>
                                 <div class="checkbox">
                                     <label>
-                                        <input type="checkbox" value=""> &nbsp;<img src="assets/img/icons/apple.png"> &nbsp;<span class="label label-info">IOS</span>
+                                        <input type="checkbox" ng-model="dev.apple_platform" ng-change="setDevPlatform(1)"> &nbsp;<img src="assets/img/icons/apple.png"> &nbsp;<span class="label label-info">IOS</span>
                                     </label>
                                 </div>
                             </div>

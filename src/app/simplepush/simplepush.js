@@ -27,7 +27,29 @@
                 $scope.dev = {};
                 $scope.dev.show_dialog=false;
                 $scope.dev.result = "";
+                $scope.dev.platform=0;
+                $scope.dev.android_platform=false;
+                $scope.dev.apple_platform=false;
+
+                //Prod object
+                $scope.prod=$scope.dev;
+                $scope.prod.all_platform=true;
             };
+
+            $scope.setDevPlatform = function(id_platform){
+                $scope.dev.platform=id_platform;
+                $scope.dev.apple_platform=id_platform===2?$scope.dev.apple_platform=false:true;
+                $scope.dev.android_platform=id_platform===1?$scope.dev.android_platform=false:true;
+            };
+
+            $scope.setPlatform = function(id_platform){
+                $scope.prod.platform=id_platform;
+                $scope.prod.apple_platform=id_platform===2||id_platform===999?$scope.dev.apple_platform=false:true;
+                $scope.prod.android_platform=id_platform===1||id_platform===999?$scope.dev.android_platform=false:true;
+                $scope.prod.all_platform=id_platform===1||id_platform===2?$scope.dev.all_platform=false:true;
+                console.log($scope.prod.platform);
+            };
+
 
             $scope.getTokenFromEmail = function(email){
                 devicetokenService.getTokenFromDeviceToken($scope.dev.email).then(function(data){
@@ -76,6 +98,10 @@
             };
 
             $scope.sendSimplePush = function(token){
+                if($scope.dev.platform===0){
+                    alert('Debes seleccionar la plataforma de envio');
+                    return false;
+                }
                 token = $scope.dev.selectedData;
 
                 if(token){
@@ -83,7 +109,8 @@
                         token : token,
                         pushName : $scope.dev.push_name?$scope.dev.push_name:'PushTEST',
                         pushTitle: $scope.dev.push_title?$scope.dev.push_title:'Example push title',
-                        pushMessage: $scope.dev.push_message?$scope.dev.push_message:'Push example message ...'
+                        pushMessage: $scope.dev.push_message?$scope.dev.push_message:'Push example message ...',
+                        platform:$scope.dev.platform
                     };
                     pushlauncherService.sendSimplePush(pushMsg).then(function(data){
                         console.log(data);
