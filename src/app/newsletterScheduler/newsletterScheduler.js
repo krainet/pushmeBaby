@@ -94,7 +94,7 @@
             $scope.new = function() {
                 var params = {
                     name: 'Newsletter',
-                    shop: $scope.data.shop,
+                    shop: 'mqu',
                     json: JSON.stringify({model : []}),
                     html: JSON.stringify('')
                 };
