@@ -87,7 +87,19 @@
                 $scope.datepicker.dateOptions = {formatYear: 'yy', startingDay: 1};
                 $scope.datepicker.format = 'dd-MM-yyyy';
                 $scope.datepicker.opened = false;
+
+                $scope.alerts = [
+                    { type: 'warning', msg: 'Bienvenido a NewsLetterMaker, Arrastra elementos para crear Newsletters. Pasalo bien!!', time:'3000' }
+                ];
                 loadModel(lastnews);
+            };
+
+            $scope.addAlert = function(msg, type, time) {
+                $scope.alerts.push({msg: msg, type: type, time:time});
+            };
+
+            $scope.closeAlert = function(index) {
+                $scope.alerts.splice(index, 1);
             };
 
             $scope.models = {
@@ -374,6 +386,7 @@
                     $log.debug(data);
                    // loadModel(data);
                     $state.go('root.newsletterMaker', {'id_news' : data.id});
+
                 }, function (err) {
                     // def.reject(err);
                 });
@@ -394,8 +407,10 @@
                     text: $scope.constructNews().text
                 };
                 newsletterMakerService.saveNewsLetter($scope.data.id, params).then(function (data) {
+                    $scope.addAlert('Newsletter guardada correctamente', 'success', 3000);
 
                 }, function (err) {
+                    $scope.addAlert('Error al guardar!', 'danger', 3000);
                     // def.reject(err);
                 });
                 //return def.promise;

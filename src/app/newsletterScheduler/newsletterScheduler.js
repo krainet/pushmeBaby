@@ -29,13 +29,15 @@
                 });
             };
 
-            var init = function () {
+            var init = function (msg) {
                 $log.info('App:: Starting newsletterSchedulerController');
                 $scope.model={};
                 $scope.model.pageTitle=$state.current.data.pageTitle;
                 $scope.isCollapsed = false;
                 $scope.data = {};
                 $scope.vm={};
+
+                $scope.alerts = [msg];
                 newsletterMakerService.getNewsIds().then(function (data) {
                     $scope.vm.tableParams = new ngTableParams({count:5}, { data: data ,counts:[5,10,15,20]});
                 }, function (err) {
@@ -45,45 +47,40 @@
             };
 
 
-            init();
-            /*
-             function randomDate(start, end) {
-             var mydate=new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
-             return mydate.yyyymmdd();
-             }
+            init({ type: 'warning', msg: 'Bienvenido a NewsLetterScheduler, Duplica, envia o elimina Newsletters!!', time:'3000' });
 
-             var self = this;
-             var data = [];
+            $scope.addAlert = function(msg, type, time) {
+                $scope.alerts.push({msg: msg, type: type, time:time});
+            };
 
-             for (i = 0; i < 201; i++) {
-             data.push({id:i,name: "Push "+Math.floor( Math.random() * 500), msg:"Push prueba "+Math.floor( Math.random() * 500), dateSend:randomDate(new Date(2015,0,1), new Date())});
-             }
-             */
-            //  var data = newsletterSchedulerData.data;
-
+            $scope.closeAlert = function(index) {
+                $scope.alerts.splice(index, 1);
+            };
 
 
             $scope.duplicate = function(id){
                 newsletterMakerService.duplicateNews(id).then(function (data) {
-                    init();
+                    init({msg:'Newsletter duplicada correctamente', type: 'success', time: 3000});
                 }, function (err) {
+                    $scope.addAlert('Error al duplicar!', 'danger', 3000);
                     $log.error(err);
                 });
             };
 
             $scope.delete = function(id){
                 newsletterMakerService.deleteNews(id).then(function (data) {
-                    init();
+                    init({msg:'Newsletter eliminada correctamente', type: 'success', time: 3000});
                 }, function (err) {
+                    $scope.addAlert('Error al eliminar!', 'danger', 3000);
                     $log.error(err);
                 });
             };
 
             $scope.send = function(id){
                 newsletterSchedulerService.sendNews(id).then(function (data) {
-                    $log.error(data);
-                    init();
+                    init({msg:'Newsletter enviada correctamente', type: 'success', time: 3000});
                 }, function (err) {
+                    $scope.addAlert('Error al enviar!', 'danger', 3000);
                     $log.error(err);
                 });
             };
@@ -100,10 +97,9 @@
                 };
                 newsletterMakerService.createNewsLetter(params).then(function (data) {
                     $log.debug(data);
-                    // loadModel(data);
                     $state.go('root.newsletterMaker', {'id_news' : data.id});
                 }, function (err) {
-                    // def.reject(err);
+                    $scope.addAlert('Error al crear nueva Newsletter!', 'danger', 3000);
                 });
             };
 
