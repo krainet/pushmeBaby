@@ -26,10 +26,10 @@
                         <td title="'F.Create'" filter="{ date_send: 'text'}" sortable="'date_send'" style="width:10%;">
                             {{seg.createdAt|date:'yyyy-MM-dd'}}</td>
                         <td title="'Actions'" style="width:15%;" class="text-center">
-                            <button class="btn btn-info btn-xs" tooltip="Editar Push Programado" tooltip-placement="left" tooltip-trigger="mouseenter">
+                            <button class="btn btn-info btn-xs" tooltip="Editar Segmento" tooltip-placement="left" tooltip-trigger="mouseenter" ng-click="editSegment(seg.id)">
                                 <i class="fa fa-pencil-square-o"></i>
                             </button>
-                            <button class="btn btn-info btn-xs" tooltip="Duplicar Push Programado" tooltip-placement="left" tooltip-trigger="mouseenter">
+                            <button class="btn btn-info btn-xs" tooltip="Duplicar Segmento" tooltip-placement="left" tooltip-trigger="mouseenter">
                                 <i class="fa fa-files-o"></i>
                             </button>
                             <button class="btn btn-success btn-xs" tooltip="Estadísticas" tooltip-placement="left" tooltip-trigger="mouseenter">
@@ -42,7 +42,7 @@
                     </tr>
                 </table>
                 <hr>
-                <button class="btn btn-info"><i class="fa fa-pencil-square-o"></i> Nuevo push programado</button>
+                <button class="btn btn-info"><i class="fa fa-pencil-square-o" ng-click="addSegment()"></i> Nuevo push programado</button>
             </div>
             <!-- /.panel-body -->
         </div>

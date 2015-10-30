@@ -1,31 +1,24 @@
 (function (app) {
-    app.config(['$stateProvider', '$urlRouterProvider', '$httpProvider', '$locationProvider',
-        function ($stateProvider, $urlRouterProvider, $httpProvider, $locationProvider) {
+    app.config(['$stateProvider', '$urlRouterProvider', '$httpProvider', '$locationProvider','localStorageServiceProvider',
+        function ($stateProvider, $urlRouterProvider, $httpProvider, $locationProvider,localStorageServiceProvider) {
             $urlRouterProvider.otherwise('/');
             $httpProvider.interceptors.push('cInterceptor');
             $httpProvider.defaults.useXDomain = true;
             delete $httpProvider.defaults.headers.common['X-Requested-With'];
+
+            //LocalStorage Service Provider
+            localStorageServiceProvider
+                .setPrefix('')
+                .setStorageType('localStorage')
+                .setStorageCookie(7, '/')
+                .setStorageCookieDomain('pushmebaby.yeeday.net/')
+                .setNotify(true, true);
 
             //Root view, very important resolve data async before states
             $stateProvider
                     .state('root', {
                         url: '',
                         abstract: true,
-                        resolve: {
-                            /*load_data: (['globalService', '$q', '$log',
-                                function (globalService, $q, $log) {
-                                    $log.warn('App::ResolveData::');
-
-                                    var def = $q.defer();
-                                    globalService.api('posts/1').get(function (data) {
-                                        def.resolve(data);
-                                        $log.warn(data);
-                                    }, function (err) {
-                                        def.reject(err);
-                                    });
-                                    return def.promise;
-                                }])*/
-                        },
                         views: {
                             'header': {
                                 templateUrl: 'header.tpl.html',
@@ -54,16 +47,14 @@
              */
         }]);
 
-    app.controller('AppController', ['$scope', '$log', function ($scope, $log) {
+    app.controller('AppController', ['$scope', '$log','authService','$rootScope', function ($scope, $log,authService,$rootScope) {
             $log.info('App:: Starting AppController');
+            $rootScope.userData = {};
         }]);
 
-    app.controller('FrontController', ['$scope', '$log','$location', function ($scope, $log,$location) {
+    app.controller('FrontController', ['$scope', '$log', function ($scope, $log) {
             $log.info('App:: Starting FrontController');
-
-            
             $scope.isCollapsed = true;
-
         }]);
 
     app.controller('FooterController', ['$scope', '$log', function ($scope, $log) {
@@ -85,6 +76,9 @@
     'pushmeBaby.devicetoken',
     'pushmeBaby.segment',
     'pushmeBaby.pushhistory',
+    'pushmeBaby.auth',
+    'LocalStorageModule',
+    'authService',
     'ui.bootstrap',
     'templates-app',
     'templates-common',

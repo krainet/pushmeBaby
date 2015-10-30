@@ -30,7 +30,7 @@
                             <h6 style="{{sch.processed?'color:green;':'color:red;'}}"><i ng-class="sch.processed?'fa fa-check-circle':'fa fa-times'"></i> {{sch.processed && 'Si' || 'No'}}</h6>
                         </td>
                         <td title="'Actions'" style="width:15%;" class="text-center">
-                            <button class="btn btn-info btn-xs" tooltip="Editar Push Programado" tooltip-placement="left" tooltip-trigger="mouseenter">
+                            <button class="btn btn-info btn-xs" tooltip="Editar Push Programado" tooltip-placement="left" tooltip-trigger="mouseenter" ng-click="editScheduller(sch.id)">
                                 <i class="fa fa-pencil-square-o"></i>
                             </button>
                             <button class="btn btn-info btn-xs" tooltip="Duplicar Push Programado" tooltip-placement="left" tooltip-trigger="mouseenter">
@@ -46,7 +46,7 @@
                     </tr>
                 </table>
                 <hr>
-                <button class="btn btn-info"><i class="fa fa-pencil-square-o"></i> Nuevo push programado</button>
+                <button class="btn btn-info" ng-click="addScheduller()"><i class="fa fa-pencil-square-o"></i> Nuevo push programado</button>
             </div>
             <!-- /.panel-body -->
         </div>
