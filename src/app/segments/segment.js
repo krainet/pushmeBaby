@@ -32,8 +32,8 @@
                 });
         }]);
 
-    app.controller('segmentController', ['$log','$scope','$state','$http','ngTableParams','$filter','segmentData',
-        function ($log,$scope,$state,$http,ngTableParams,$filter,segmentData) {
+    app.controller('segmentController', ['$log','$scope','$state','$http','ngTableParams','$filter','segmentData','$modal',
+        function ($log,$scope,$state,$http,ngTableParams,$filter,segmentData,$modal) {
 
             var init = function () {
                 $log.info('App:: Starting segmentController');
@@ -46,23 +46,51 @@
             };
 
             init();
-/*
-            function randomDate(start, end) {
-                var mydate=new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
-                return mydate.yyyymmdd();
-            }
 
-            var self = this;
-            var data = [];
+            $scope.addSegment = function () {
+                // $log.debug($scope.models.selected.color);
+                $scope.modalInstance = $modal.open({
+                    templateUrl: 'segments/segmentModalAdd.tpl.html',
+                    size: 'lg',
+                    controller: 'segmentModalAddController',
+                    scope: $scope
+                });
+            };
+            $scope.editSegment = function (id) {
+                // $log.debug($scope.models.selected.color);
+                $scope.modalInstance = $modal.open({
+                    templateUrl: 'segments/segmentModalEdit.tpl.html',
+                    size: 'lg',
+                    controller: 'segmentModalEditController',
+                    scope: $scope
+                });
+            };
 
-            for (i = 0; i < 201; i++) {
-                data.push({id:i,name: "Push "+Math.floor( Math.random() * 500), msg:"Push prueba "+Math.floor( Math.random() * 500), dateSend:randomDate(new Date(2015,0,1), new Date())});
-            }
-            */
+
             var data = segmentData.data;
 
             $scope.vm={};
             $scope.vm.tableParams = new ngTableParams({count:5}, { data: data,counts:[5,10,15,20]});
+
+        }]);
+
+    app.controller('segmentModalAddController', ['$scope', '$modalInstance', '$log','$rootScope',
+        function ($scope, $modalInstance, $log, $rootScope) {
+            var init = function (){
+                $scope.status = {};
+            };
+
+            init();
+
+        }]);
+
+    app.controller('segmentModalEditController', ['$scope', '$modalInstance', '$log','$rootScope',
+        function ($scope, $modalInstance, $log, $rootScope) {
+            var init = function (){
+                $scope.status = {};
+            };
+
+            init();
 
         }]);
 

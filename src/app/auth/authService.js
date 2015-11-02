@@ -1,15 +1,15 @@
 /* 
- * Global Services Test Módule
+ * Api Test Módule
  */
-angular.module('globalService', [])
-        .factory('globalService', ['$resource', '$q', '$log',
+angular.module('authService', [])
+        .factory('authService', ['$resource', '$q', '$log',
             function ($resource, $q, $log) {
                 return {
                     api: function (extra_route) {
                         if (!extra_route) {
                             extra_route = '';
                         }
-                        return $resource(API_URL + '/' + extra_route, {}, {
+                        return $resource(API_URL + '/auth' + extra_route, {}, {
                             query: {
                                 timeout: 15000
                             },
@@ -23,13 +23,28 @@ angular.module('globalService', [])
                             }
                         });
                     },
-                    getAction: function () {
+                    getUserInfo: function () {
                         //Service action with promise resolve (then)
                         var def = $q.defer();
-                        this.api().get({}, {}, function (data) {
-                            $log.warn('Api::data:: ');
-                            $log.warn(data);
+                        this.api('').get({}, {}, function (data) {
                             def.resolve(data);
+                        }, function (err) {
+                            def.reject(err);
+                        });
+                        return def.promise;
+                    },
+                    submitLogin: function (username,password) {
+                        //Service action with promise resolve (then)
+                        var def = $q.defer();
+                        postData = {
+                            username:username,
+                            password:password
+                        };
+                        this.api().save({}, postData, function (data) {
+                            def.resolve(data);
+                            if(data.token){
+
+                            }
                         }, function (err) {
                             def.reject(err);
                         });
@@ -37,17 +52,6 @@ angular.module('globalService', [])
                     },
                     testFunction: function () {
                         alert('testFunction');
-                    },
-                    getUrlParam: function (parameterName) {
-                        parameterName += "=";
-                        var parameterValue = (location.hash.indexOf(parameterName)) ? location.hash.substring(location.hash.indexOf(parameterName) + parameterName.length) : null;
-                        if (parameterValue !== null && parameterValue.indexOf('&') >= 0) {
-                            parameterValue = parameterValue.substring(0, parameterValue.indexOf('&'));
-                        }
-                        return parameterValue;
-                    },
-                    saveCsrfToken: function (token) {
-
                     }
                 };
             }]);

@@ -9,8 +9,8 @@ var API_URL = 'http://localhost:3000/api';
 
 //Send custom header in your request and response headers
 //Used for example to send auth-cookies in headers
-var USE_CUSTOM_HEADER = false;
-var CUSTOM_HEADER = 'Accept-Language';
+var USE_CUSTOM_HEADER = true;
+var CUSTOM_HEADER = 'X-Origin-Provider';
 
 
 //To test login with facebook you need to setup pushmeBaby.com as your local virtualhost

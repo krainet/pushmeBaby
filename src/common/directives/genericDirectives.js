@@ -63,8 +63,12 @@ angular.module('genericDirectives', [])
             },
             controller:function($scope){
                 $scope.selectedMenu = 'dashboard';
-                $scope.collapseVar = 2;
+                $scope.collapseVar = 999;
                 $scope.multiCollapseVar = 0;
+
+                var init = function(){
+                    $scope.check(1);
+                };
 
                 $scope.check = function(x){
 
@@ -85,6 +89,8 @@ angular.module('genericDirectives', [])
                     }
 
                 };
+
+                init();
             }
         };
     }])

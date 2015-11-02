@@ -1,0 +1,73 @@
+<style>
+    body {
+        padding: 15px;
+    }
+
+    .select2 > .select2-choice.ui-select-match {
+        /* Because of the inclusion of Bootstrap */
+        height: 29px;
+    }
+
+    .selectize-control > .selectize-dropdown {
+        top: 36px;
+    }
+
+    .full button span {
+        background-color: limegreen;
+        border-radius: 32px;
+        color: black;
+    }
+    .partially button span {
+        background-color: orange;
+        border-radius: 32px;
+        color: black;
+    }
+
+</style>
+<div class="container-fluid">
+    &nbsp;<br>
+    <div class="row">
+        <div class="col-md-12">
+            <form role="form">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">
+                        Campaign Name
+                    </label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" ng-model="model.campaign_name"/>
+                </div>
+
+                <div class="col-md-6 text-center">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">
+                            Selected segments
+                        </label><br>
+                        <ui-select multiple ng-model="multipleDemo.colors" theme="select2" ng-disabled="disabled" style="width: 300px;">
+                            <ui-select-match placeholder="Select colors...">{{$item}}</ui-select-match>
+                            <ui-select-choices repeat="color in availableColors | filter:$select.search">
+                                {{color}}
+                            </ui-select-choices>
+                        </ui-select>
+                    </div>
+                </div>
+
+                <div class="col-md-6 text-center">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">
+                            Start Date:
+                        </label>
+
+                    </div>
+                </div>
+
+
+            </form>
+            <button type="button" class="btn btn-success btn-block">
+                Crear <i class="fa fa-plus"></i>
+            </button>
+            <button type="button" class="btn btn-danger btn-block">
+                Cancel <i class="fa fa-minus"></i>
+            </button>
+        </div>
+    </div>
+</div>
+&nbsp;<br>

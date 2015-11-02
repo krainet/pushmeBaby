@@ -94,7 +94,8 @@ module.exports = function (grunt) {
                 'vendor/textAngular/dist/textAngular-rangy.min.js',
                 'vendor/textAngular/dist/textAngular.min.js',
                 'vendor/ngSticky/dist/sticky.min.js',
-
+                'vendor/ui-select/dist/select.js',
+                'vendor/angular-local-storage/dist/angular-local-storage.js'
             ],
             css: [
                 'vendor/metisMenu/dist/metisMenu.min.css',
@@ -103,6 +104,7 @@ module.exports = function (grunt) {
                 'vendor/ng-table/dist/ng-table.css',
                 'vendor/font-awesome/css/font-awesome.css',
                 'vendor/textAngular/dist/textAngular.css',
+                'vendor/ui-select/dist/select.css'
             ],
             css2: [
 
