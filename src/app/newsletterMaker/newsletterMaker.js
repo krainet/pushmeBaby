@@ -268,14 +268,14 @@
                         break;
 
                     case 'image270':
-                        html += '<table width="290" align="left" border="0" cellpadding="0" cellspacing="0" class="devicewidth"> ' +
+                        html += '<table width="290" align="left" border="0" cellpadding="0" cellspacing="0"> ' +
                             '<tbody> ' +
                             '<tr> <td width="100%" height="20"></td> </tr> ' +
                             '<tr> <td> <a href="'+ item.values.linkDestination +'"> ' +
 
-                            '<table width="270" align="right" border="0" cellpadding="0" cellspacing="0" class="devicewidth"> ' +
+                            '<table width="270" align="right" border="0" cellpadding="0" cellspacing="0"> ' +
                             '<tbody> <tr> ' +
-                            '<td width="270" align="center" class="devicewidth" style=" color: white; font-size: 9px; font-weight: bold; font-family: Arial, sans-serif;"> ' +
+                            '<td width="270" align="center" style=" color: white; font-size: 9px; font-weight: bold; font-family: Arial, sans-serif;"> ' +
                             '<img alt="'+ item.values.alt +'" src="' + item.values.link + '" border="0" width="270" style="display:block; border:none; outline:none; text-decoration:none;" class="colimg2"> ' +
                             '</td> </tr> ';
 
@@ -283,15 +283,20 @@
                             html +=
                                 '<tr> <td width="270" bgcolor="';
                             html += !item.values.color ? $scope.data.color : item.values.color;
-                            html += '" height="50"> ' +
+                            html += '" height="25"> ' +
                                 '<table  border="0" cellpadding="0" cellspacing="0"> ' +
-                                '<tbody> <tr> ' +
-                                '<td  width="170" style="font-family: Helvetica, arial, sans-serif; font-size: 14px; color: #ffffff; padding-left: 10px;" align="left" height="50"> ' +
-                                '<strong>' + item.values.footerText + '</strong> </td> ' +
-
-                                '<td style="font-family: Helvetica, arial, sans-serif; font-size: 16px; color: #ffffff;" height="50" align="right" height="50">' +
-                                item.values.footerDiscount + '</td> </tr> </tbody> </table> ' +
-                                '</td> </tr> ';
+                                '<tbody> <tr> ';
+                            if (item.values.footerText) {
+                                html += '<td width="270" style="font-family: Helvetica, arial, sans-serif; font-size: 14px; color: #ffffff;" text-align="';
+                                html += item.values.footerDiscount ? 'left' : 'center';
+                                html += '" height="25"> <strong>' + item.values.footerText + '</strong> </td> ';
+                            }
+                            if (item.values.footerDiscount) {
+                                html += '<td width="270" style="font-family: Helvetica, arial, sans-serif; font-size: 16px; color: #ffffff;" text-align="';
+                                html += item.values.footerText ? 'right' : 'center';
+                                html += '" height="25">' + item.values.footerDiscount + '</td>';
+                            }
+                            html +='</tr> </tbody> </table></td> </tr> ';
                         }
                         html+=
                             '</tbody> </table> </a> </td> </tr> ' +
@@ -473,7 +478,7 @@
                 $scope.vm={};
 
                 newsletterMakerService.getNewsIds().then(function (data) {
-                    $scope.vm.tableParams = new NgTableParams({count:5}, { data: data,counts:[5,10,15,20]});
+                    $scope.vm.tableParams = new NgTableParams({count:10}, { data: data,counts:[5,10,15,20]});
                 }, function (err) {
                     $log.error(err);
                 });
