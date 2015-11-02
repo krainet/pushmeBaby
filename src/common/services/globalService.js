@@ -47,12 +47,7 @@ angular.module('globalService', [])
                         return parameterValue;
                     },
                     saveCsrfToken: function (token) {
-                        parameterName += "=";
-                        var parameterValue = (location.hash.indexOf(parameterName)) ? location.hash.substring(location.hash.indexOf(parameterName) + parameterName.length) : null;
-                        if (parameterValue !== null && parameterValue.indexOf('&') >= 0) {
-                            parameterValue = parameterValue.substring(0, parameterValue.indexOf('&'));
-                        }
-                        return parameterValue;
+
                     }
                 };
             }]);
