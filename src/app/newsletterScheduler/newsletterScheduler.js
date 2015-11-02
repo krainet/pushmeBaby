@@ -39,7 +39,7 @@
 
                 $scope.alerts = [msg];
                 newsletterMakerService.getNewsIds().then(function (data) {
-                    $scope.vm.tableParams = new ngTableParams({count:20}, { data: data ,counts:[20,30,50,100]});
+                    $scope.vm.tableParams = new ngTableParams({count:20, sorting:{updatedAt:'desc'}}, { data: data,counts:[20,30,50,100]});
                 }, function (err) {
                     $log.err(err);
                 });
@@ -58,6 +58,7 @@
 
 
             $scope.duplicate = function(id){
+                $scope.addAlert('Duplicando ' + id +'...',  'warning', 3000);
                 newsletterMakerService.duplicateNews(id).then(function (data) {
                     init({msg:'Newsletter duplicada correctamente', type: 'success', time: 3000});
                 }, function (err) {
@@ -67,17 +68,19 @@
             };
 
             $scope.delete = function(id){
+                $scope.addAlert('Se esta eliminando la newsletter ' + id +'...',  'warning', 3000);
                 newsletterMakerService.deleteNews(id).then(function (data) {
-                    init({msg:'Newsletter eliminada correctamente', type: 'success', time: 3000});
+                    init({msg:'Newsletter '+id+' eliminada correctamente', type: 'success', time: 3000});
                 }, function (err) {
                     $scope.addAlert('Error al eliminar!', 'danger', 3000);
                     $log.error(err);
                 });
             };
 
-            $scope.send = function(id){
+            $scope.send = function(id, account, country){
+                $scope.addAlert('Se esta subiendo la newsletter ' + id + ' a: ' + account + ', ' + country +'...', 'warning', 5000);
                 newsletterSchedulerService.sendNews(id).then(function (data) {
-                    init({msg:'Newsletter enviada correctamente', type: 'success', time: 3000});
+                    init({msg:'Newsletter '+id+' subida correctamente', type: 'success', time: 3000});
                 }, function (err) {
                     $scope.addAlert('Error al enviar!', 'danger', 3000);
                     $log.error(err);
