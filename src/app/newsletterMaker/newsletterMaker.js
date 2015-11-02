@@ -268,7 +268,7 @@
                         break;
 
                     case 'image270':
-                        html += '<table width="290" align="left" border="0" cellpadding="0" cellspacing="0"> ' +
+                        html += '<table width="284" align="left" border="0" cellpadding="0" cellspacing="0"> ' +
                             '<tbody> ' +
                             '<tr> <td width="100%" height="20"></td> </tr> ' +
                             '<tr> <td> <a href="'+ item.values.linkDestination +'"> ' +
@@ -281,19 +281,19 @@
 
                         if (item.values.footerText || item.values.footerDiscount) {
                             html +=
-                                '<tr> <td width="270" bgcolor="';
+                                '<tr> <td width="100%" bgcolor="';
                             html += !item.values.color ? $scope.data.color : item.values.color;
                             html += '" height="25"> ' +
-                                '<table  border="0" cellpadding="0" cellspacing="0"> ' +
+                                '<table  border="0" cellpadding="0" cellspacing="0" width="100%"> ' +
                                 '<tbody> <tr> ';
                             if (item.values.footerText) {
-                                html += '<td width="270" style="font-family: Helvetica, arial, sans-serif; font-size: 14px; color: #ffffff;" text-align="';
-                                html += item.values.footerDiscount ? 'left' : 'center';
+                                html += '<td style="font-family: Helvetica, arial, sans-serif; font-size: 14px; color: #ffffff;" class="';
+                                html += item.values.footerDiscount ? 'taulaLeft' : 'taulaCenter';
                                 html += '" height="25"> <strong>' + item.values.footerText + '</strong> </td> ';
                             }
                             if (item.values.footerDiscount) {
-                                html += '<td width="270" style="font-family: Helvetica, arial, sans-serif; font-size: 16px; color: #ffffff;" text-align="';
-                                html += item.values.footerText ? 'right' : 'center';
+                                html += '<td style="font-family: Helvetica, arial, sans-serif; font-size: 16px; color: #ffffff;" class="';
+                                html += item.values.footerText ? 'taulaRight' : 'taulaCenter';
                                 html += '" height="25">' + item.values.footerDiscount + '</td>';
                             }
                             html +='</tr> </tbody> </table></td> </tr> ';
@@ -323,11 +323,11 @@
                         break;
 
                     case 'container':
-                        html += '<table width="600" cellpadding="0" cellspacing="0" border="0" align="center" class="devicewidth">' +
+                        html += '<table width="580" cellpadding="0" cellspacing="0" border="0" align="center" class="devicewidth">' +
                             '<tbody>' +
                             '<tr>' +
                             '<td width="100%"> ' +
-                            '<table bgcolor="#ffffff" width="600" cellpadding="0" cellspacing="0" border="0" align="center" class="devicewidth">' +
+                            '<table bgcolor="#ffffff" width="580" cellpadding="0" cellspacing="0" border="0" align="center" class="devicewidth">' +
                             '<tbody> ' +
                             '<tr> <td> ';
 
@@ -413,6 +413,7 @@
                 };
                 newsletterMakerService.saveNewsLetter($scope.data.id, params).then(function (data) {
                     $scope.addAlert('Newsletter guardada correctamente', 'success', 3000);
+                    $scope.addAlert('Ten en cuenta que la newsletter esta guardada en ' + $scope.data.target.account + ', ' + $scope.data.target.country, 'warning', 5000);
 
                 }, function (err) {
                     $scope.addAlert('Error al guardar!', 'danger', 3000);
