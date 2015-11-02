@@ -66,8 +66,8 @@
                 });
         }]);
 
-    app.controller('newsletterMakerController', ['$scope', '$log','$state','$modal', '$templateCache', '$compile', 'colorshops','components','lastnews', 'newsletterMakerService',
-        function ($scope, $log, $state, $modal, $templateCache, $compile, colorshops, components, lastnews, newsletterMakerService) {
+    app.controller('newsletterMakerController', ['$scope', '$log','$state','$uibModal', '$templateCache', '$compile', 'colorshops','components','lastnews', 'newsletterMakerService',
+        function ($scope, $log, $state, $uibModal, $templateCache, $compile, colorshops, components, lastnews, newsletterMakerService) {
             $log.info('App:: Starting newsletterMakerController');
 
             var init = function () {
@@ -165,7 +165,7 @@
             $scope.setImage = function () {
 
                 // $log.debug($scope.models.selected.color);
-                $scope.modalInstance = $modal.open({
+                $scope.modalInstance = $uibModal.open({
                     templateUrl: 'newsletterMaker/setImage.modal.tpl.html',
                     size: 'lg',
                     controller: 'modalSetImageController',
@@ -173,7 +173,7 @@
                 });
             };
             $scope.setSimpleText = function () {
-                $scope.modalInstance = $modal.open({
+                $scope.modalInstance = $uibModal.open({
                     templateUrl: 'newsletterMaker/setSimpleText.modal.tpl.html',
                     size: 'lg',
                     scope: $scope
@@ -181,7 +181,7 @@
 
             };
             $scope.setFreeHtml = function () {
-                $scope.modalInstance = $modal.open({
+                $scope.modalInstance = $uibModal.open({
                     templateUrl: 'newsletterMaker/setFreeHtml.modal.tpl.html',
                     size: 'lg',
                     scope: $scope
@@ -193,7 +193,7 @@
                 });
             };
             $scope.loadNews = function () {
-                $scope.modalInstance = $modal.open({
+                $scope.modalInstance = $uibModal.open({
                     templateUrl: 'newsletterMaker/loadNews.modal.tpl.html',
                     size: 'lg',
                     controller: 'modalNewsController',
@@ -417,13 +417,16 @@
             };
         }]);
 
-    app.controller('modalSetImageController', ['$scope', '$modalInstance', '$log', '$filter','$rootScope', 'newsletterMakerService',
-        function ($scope, $modalInstance, $log, $filter, $rootScope, newsletterMakerService) {
+    app.controller('modalSetImageController', ['$scope', '$uibModalInstance', '$log', '$filter','$rootScope', 'newsletterMakerService',
+        function ($scope, $uibModalInstance, $log, $filter, $rootScope, newsletterMakerService) {
 
             var init = function (){
                 $scope.status = {};
-                $scope.status.openOffers = !!$scope.models.selected.values.offer;
-                $scope.status.openSpecials = !!$scope.models.selected.values.special;
+                //$scope.status.openOffers = !!$scope.models.selected.values.offer;
+                //$scope.status.openSpecials = !!$scope.models.selected.values.special;
+                $scope.status.oneAtATime = true;
+                $scope.status.openOffers = false;
+                $scope.status.openSpecials = false;
             };
             init();
 
@@ -463,8 +466,8 @@
 
         }]);
 
-    app.controller('modalNewsController', ['$scope','$state', '$modalInstance', '$log', 'ngTableParams','$filter','$rootScope', 'newsletterMakerService',
-        function ($scope,$state, $modalInstance, $log, NgTableParams,$filter, $rootScope, newsletterMakerService) {
+    app.controller('modalNewsController', ['$scope','$state', '$uibModalInstance', '$log', 'ngTableParams','$filter','$rootScope', 'newsletterMakerService',
+        function ($scope,$state, $uibModalInstance, $log, NgTableParams,$filter, $rootScope, newsletterMakerService) {
             var init = function (){
                 $scope.data = {};
                 $scope.vm={};

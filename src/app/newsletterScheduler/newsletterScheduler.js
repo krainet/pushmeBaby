@@ -39,13 +39,12 @@
 
                 $scope.alerts = [msg];
                 newsletterMakerService.getNewsIds().then(function (data) {
-                    $scope.vm.tableParams = new ngTableParams({count:5}, { data: data ,counts:[5,10,15,20]});
+                    $scope.vm.tableParams = new ngTableParams({count:20}, { data: data ,counts:[20,30,50,100]});
                 }, function (err) {
                     $log.err(err);
                 });
 
             };
-
 
             init({ type: 'warning', msg: 'Bienvenido a NewsLetterScheduler, Duplica, envia o elimina Newsletters!!', time:'3000' });
 

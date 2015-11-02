@@ -12,8 +12,8 @@
                     {{sch.name}}</td>
                 <td title="'Tienda'" filter="{ shop: 'text'}" sortable="'shop'" style="width:7%;">
                     {{sch.shop}}</td>
-                <td title="'Creado'" filter="{ createdAt: 'text'}" sortable="'createdAt'" style="width:15%;">
-                    {{sch.createdAt|date:'yyyy-MM-dd'}}</td>
+                <td title="'Account/Country'" filter="{ account: 'text'}" sortable="'account'" style="width:15%;">
+                    {{sch.account}}/{{sch.country}}</td>
                 <td title="'Actualizado'" filter="{ updatedAt: 'text'}" sortable="'updatedAt'" style="width:15%;">
                     {{sch.updatedAt|date:'yyyy-MM-dd'}}</td>
                 <td title="'Fecha P. Envio'" filter="{ expectedDate: 'text'}" sortable="'expectedDate'" style="width:15%;">
@@ -22,13 +22,13 @@
                     <h6 style="{{sch.sent?'color:green;':'color:red;'}}"><i ng-class="sch.sent?'fa fa-check-circle':'fa fa-times'"></i> {{sch.sent && 'Si' || 'No'}}</h6>
                 </td>
                 <td title="'Actions'" style="width:15%;" class="text-center">
-                    <button class="btn btn-info btn-xs" tooltip="Editar NewsLetter" tooltip-placement="left" tooltip-trigger="mouseenter" ng-click="edit(sch.id)">
+                    <button class="btn btn-info btn-xs" uib-tooltip="Editar NewsLetter" uib-tooltip-placement="left" uib-tooltip-trigger="mouseenter" ng-click="edit(sch.id)">
                         <i class="fa fa-pencil-square-o"></i>
                     </button>
-                    <button class="btn btn-info btn-xs" tooltip="Duplicar NewsLetter" tooltip-placement="left" tooltip-trigger="mouseenter" ng-click="duplicate(sch.id)">
+                    <button class="btn btn-info btn-xs" uib-tooltip="Duplicar NewsLetter" uib-tooltip-placement="left" uib-tooltip-trigger="mouseenter" ng-click="duplicate(sch.id)">
                         <i class="fa fa-files-o"></i>
                     </button>
-                    <button class="btn btn-danger btn-xs" tooltip="Eliminar NewsLetter" tooltip-placement="left" tooltip-trigger="mouseenter" ng-click="delete(sch.id)">
+                    <button class="btn btn-danger btn-xs" uib-tooltip="Eliminar NewsLetter" uib-tooltip-placement="left" uib-tooltip-trigger="mouseenter" ng-click="delete(sch.id)">
                         <i class="fa fa-trash-o"></i>
                     </button>
                 </td>
