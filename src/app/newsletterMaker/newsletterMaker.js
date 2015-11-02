@@ -61,7 +61,7 @@
                             }])
                     },
                     data: {
-                        pageTitle: 'newsletterMaker'
+                        pageTitle: 'Newsletter Maker'
                     }
                 });
         }]);
