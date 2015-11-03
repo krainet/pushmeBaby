@@ -40,9 +40,6 @@
                 $scope.model={};
                 $scope.model.pageTitle=$state.current.data.pageTitle;
                 $scope.isCollapsed = false;
-
-
-
             };
 
             init();

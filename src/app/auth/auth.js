@@ -28,9 +28,8 @@
 
             $scope.isAuthenticated = function(){
                 authService.getUserInfo().then(function (data) {
-                    console.log(data);
                 }, function (err) {
-                    console.log(err);
+                    $log.error(err);
                 });
             };
         };
@@ -38,9 +37,9 @@
         $scope.submitLogin = function(){
             alert('hola');
             authService.submitLogin($scope.login.username,$scope.login.password).then(function (data) {
-                console.log(data);
+                $log.debug(data);
             }, function (err) {
-                console.log(err);
+                $log.error(err);
             });
         };
 
