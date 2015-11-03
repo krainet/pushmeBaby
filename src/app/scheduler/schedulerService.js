@@ -32,8 +32,23 @@ angular.module('schedulerService', [])
                         });
                         return def.promise;
                     },
-                    testFunction: function () {
-                        alert('testFunction');
+                    submitCampaign: function (name,segments,msg_apple,msg_android,date_send) {
+                        var def = $q.defer();
+                        var postData = {
+                            name:name,
+                            segments:segments,
+                            message_apple:msg_apple,
+                            message_android:msg_android,
+                            date_send:date_send
+                        };
+                        this.api().save({}, postData, function (data) {
+                            console.log(data);
+                            def.resolve(data);
+                        }, function (err) {
+                            console.log(err);
+                            def.reject(err);
+                        });
+                        return def.promise;
                     }
                 };
             }]);

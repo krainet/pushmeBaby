@@ -32,23 +32,17 @@
                 });
         }]);
 
-    app.controller('schedulerController', ['$log','$scope','$state','$http','ngTableParams','$filter','schedulerData','$modal',
-        function ($log,$scope,$state,$http, ngTableParams,$filter,schedulerData,$modal) {
+    app.controller('schedulerController', ['$log','$scope','$state','$http','ngTableParams','$filter','schedulerData','$modal','schedulerService',
+        function ($log,$scope,$state,$http, ngTableParams,$filter,schedulerData,$modal,schedulerService) {
 
             var init = function () {
                 $log.info('App:: Starting schedulerController');
                 $scope.model={};
                 $scope.model.pageTitle=$state.current.data.pageTitle;
-                //$scope.isCollapsed = false;
-
+                $scope.vm={};
+                var data = schedulerData.data;
+                $scope.vm.tableParams = new ngTableParams({count:5}, { data: data,counts:[5,10,15,20]});
             };
-
-            init();
-
-            var data = schedulerData.data;
-
-            $scope.vm={};
-            $scope.vm.tableParams = new ngTableParams({count:5}, { data: data,counts:[5,10,15,20]});
 
             $scope.addScheduller = function () {
                 $scope.modalInstance = $modal.open({
@@ -57,7 +51,21 @@
                     controller: 'schedulerModalAddController',
                     scope: $scope
                 });
+
+                $scope.modalInstance.result.then(function(modalResult){
+                    //TODO crear compaign
+                    console.log(modalResult.campaign_name,modalResult.segments,modalResult.apple,modalResult.android,modalResult.date_send);
+                    schedulerService.submitCampaign(modalResult.campaign_name,modalResult.segments,modalResult.apple,modalResult.android,modalResult.date_send)
+                        .then(function(data){
+                            console.log(data);
+                        },function(err){
+                            console.log(err);
+                        });
+                },function(err){
+                    $log.error('Dismissed'+err);
+                });
             };
+
             $scope.editScheduller = function (id) {
                 $scope.modalInstance = $modal.open({
                     templateUrl: 'scheduler/schedulerModalEdit.tpl.html',
@@ -67,52 +75,56 @@
                 });
             };
 
+            init();
         }]);
 
     app.controller('schedulerModalAddController', ['$scope', '$modalInstance', '$log','$rootScope','segmentService',
         function ($scope, $modalInstance, $log, $rootScope,segmentService) {
             var init = function (){
-                $scope.status = {};
-                $scope.disabled = undefined;
-                $scope.searchEnabled = undefined;
-                $scope.enable = function() {
-                    $scope.disabled = false;
-                };
-                $scope.disable = function() {
-                    $scope.disabled = true;
-                };
-                $scope.enableSearch = function() {
-                    $scope.searchEnabled = true;
-                };
-                $scope.disableSearch = function() {
-                    $scope.searchEnabled = false;
-                };
-                $scope.clear = function() {
-                    $scope.person.selected = undefined;
-                    $scope.address.selected = undefined;
-                    $scope.country.selected = undefined;
-                };
-                $scope.someGroupFn = function (item){
-                    if (item.name[0] >= 'A' && item.name[0] <= 'M'){
-                        return 'From A - M';
-                    }
-                    if (item.name[0] >= 'N' && item.name[0] <= 'Z'){
-                        return 'From N - Z';
-                    }
+                $scope.opened = {};
+                $scope.model = {};
+                $scope.model.android="";
+                $scope.model.apple="";
+                $scope.max_apple = 107;
+                $scope.max_android = 300;
+                $scope.apple_remaining = $scope.max_apple-$scope.model.apple.length;
+                $scope.android_remaining = $scope.max_android-$scope.model.android.length;
 
+
+                $scope.availableSegments = ['Android','iOS','Others','WindowsMobile','All'];
+
+                $scope.availableSegments2 = [
+                    {id:1,name:'iOS',value:'1'},
+                    {id:2,name:'Android',value:'2'},
+                    {id:3,name:'All',value:'3'}
+                ];
+                $scope.model.segment = {};
+                $scope.model.segment.selectedValues = [{"id":2,"name":"Android","value":"2"}];
+                $scope.model.starttime = new Date();
+                $scope.model.endtime = new Date();
+
+                $scope.$watch('model.apple', function() {
+                    $scope.apple_remaining = $scope.max_apple-$scope.model.apple.length;
+                });
+                $scope.$watch('model.android', function() {
+                    $scope.android_remaining = $scope.max_android-$scope.model.android.length;
+                });
+            };
+
+            $scope.opencalendar = function(){
+                $scope.open = function() {
+                    $timeout(function() {
+                        $scope.opened = true;
+                    });
                 };
+            };
 
-                $scope.counter = 0;
-                $scope.someFunction = function (item, model){
-                    $scope.counter++;
-                    $scope.eventResult = {item: item, model: model};
-                };
+            $scope.ok = function (model) {
+                $modalInstance.close(model);
+            };
 
-                $scope.availableColors = ['Red','Green','Blue','Yellow','Magenta','Maroon','Umbra','Turquoise'];
-
-                $scope.multipleDemo = {};
-                $scope.multipleDemo.colors = ['Blue','Red'];
-
+            $scope.cancel = function (model) {
+                $modalInstance.dismiss('Exit');
             };
 
             init();
@@ -161,6 +173,7 @@
 
 }(angular.module("pushmeBaby.scheduler", [
     'ui.router',
+    'ui.bootstrap',
     'ngAnimate',
     'ngTable',
     'schedulerService',
