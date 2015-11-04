@@ -1,47 +1,47 @@
 <div class="container-fluid">
+    &nbsp;<br>
     <div class="row">
         <div class="col-md-12">
             <form role="form">
-                <div class="form-group">
-
-                    <label for="exampleInputEmail1">
-                        Email address
-                    </label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" />
+                <div class="col-md-6 text-center">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">
+                            Segment Name
+                        </label>
+                        <input type="text" class="form-control" id="exampleInputEmail1" ng-model="model.name"/>
+                    </div>
                 </div>
-                <div class="form-group">
 
-                    <label for="exampleInputPassword1">
-                        Password
-                    </label>
-                    <input type="password" class="form-control" id="exampleInputPassword1" />
+                <div class="col-md-6 text-center">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">
+                            Segment Description
+                        </label>
+                        <input type="text" class="form-control" id="exampleInputEmail1" ng-model="model.description"/>
+                    </div>
                 </div>
-                <div class="form-group">
-
-                    <label for="exampleInputFile">
-                        File input
-                    </label>
-                    <input type="file" id="exampleInputFile" />
-                    <p class="help-block">
-                        Example block-level help text here.
-                    </p>
-                </div>
-                <div class="checkbox">
-
-                    <label>
-                        <input type="checkbox" /> Check me out
-                    </label>
-                </div>
-                <button type="submit" class="btn btn-default">
-                    Submit
-                </button>
             </form>
-            <button type="button" class="btn btn-success btn-block">
-                Default
+        </div>
+        <div class="col-md-12">
+            <label for="exampleInputEmail1">
+                <img src="assets/img/icons/android.png">&nbsp;<img src="assets/img/icons/apple.png">&nbsp;JSON Configuration:
+            </label>
+        </div>
+        <div class="col-md-12">
+            <textarea style="width:100%" rows="3" ng-model="model.configuration"></textarea>
+        </div>
+
+        <div class="col-md-6">
+            <button type="button" class="btn btn-danger btn-block" ng-click="cancel()">
+                Cancelar <i class="fa fa-ban"></i>
             </button>
-            <button type="button" class="btn btn-danger btn-block">
-                Default
+        </div>
+        <div class="col-md-6">
+            <button type="button" class="btn btn-success btn-block" ng-click="ok(model)">
+                Crear Segmento <i class="fa fa-plus"></i>
             </button>
+
         </div>
     </div>
 </div>
+&nbsp;<br>

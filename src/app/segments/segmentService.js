@@ -20,6 +20,14 @@ angular.module('segmentService', [])
                             get: {
                                 timeout: 15000,
                                 method: 'GET'
+                            },
+                            put: {
+                                timeout: 15000,
+                                method: 'PUT'
+                            },
+                            delete: {
+                                timeout: 15000,
+                                method: 'DELETE'
                             }
                         });
                     },
@@ -32,8 +40,51 @@ angular.module('segmentService', [])
                         });
                         return def.promise;
                     },
-                    testFunction: function () {
-                        alert('testFunction');
+                    getSegment: function(id){
+                        var def = $q.defer();
+                        this.api(id).get({}, {}, function (data) {
+                            def.resolve(data);
+                        }, function (err) {
+                            def.reject(err);
+                        });
+                        return def.promise;
+                    },
+                    submitSegment: function (name,description,configuration) {
+                        var def = $q.defer();
+                        var postData = {
+                            name:name,
+                            description:description,
+                            configuration:configuration
+                        };
+                        this.api().save({}, postData, function (data) {
+                            def.resolve(data);
+                        }, function (err) {
+                            def.reject(err);
+                        });
+                        return def.promise;
+                    },
+                    saveSegment: function (id,name,description,configuration) {
+                        var def = $q.defer();
+                        var postData = {
+                            name:name,
+                            description:description,
+                            configuration:configuration
+                        };
+                        this.api(id).put({}, postData, function (data) {
+                            def.resolve(data);
+                        }, function (err) {
+                            def.reject(err);
+                        });
+                        return def.promise;
+                    },
+                    deleteSegment: function(id){
+                        var def = $q.defer();
+                        this.api(id).delete({}, {}, function (data) {
+                            def.resolve(data);
+                        }, function (err) {
+                            def.reject(err);
+                        });
+                        return def.promise;
                     }
                 };
             }]);

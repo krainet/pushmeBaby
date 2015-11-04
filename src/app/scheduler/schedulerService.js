@@ -20,12 +20,29 @@ angular.module('schedulerService', [])
                             get: {
                                 timeout: 15000,
                                 method: 'GET'
+                            },
+                            put: {
+                                timeout: 15000,
+                                method: 'PUT'
+                            },
+                            delete: {
+                                timeout: 15000,
+                                method: 'DELETE'
                             }
                         });
                     },
-                    getAllschedulers: function () {
+                    getAllCampaigns: function () {
                         var def = $q.defer();
                         this.api().get({}, {}, function (data) {
+                            def.resolve(data);
+                        }, function (err) {
+                            def.reject(err);
+                        });
+                        return def.promise;
+                    },
+                    getCampaign: function(id){
+                        var def = $q.defer();
+                        this.api(id).get({}, {}, function (data) {
                             def.resolve(data);
                         }, function (err) {
                             def.reject(err);
@@ -42,10 +59,34 @@ angular.module('schedulerService', [])
                             date_send:date_send
                         };
                         this.api().save({}, postData, function (data) {
-                            console.log(data);
                             def.resolve(data);
                         }, function (err) {
-                            console.log(err);
+                            def.reject(err);
+                        });
+                        return def.promise;
+                    },
+                    saveCampaign: function (id,name,segments,msg_apple,msg_android,date_send,is_draft) {
+                        var def = $q.defer();
+                        var postData = {
+                            name:name,
+                            segments:segments,
+                            message_apple:msg_apple,
+                            message_android:msg_android,
+                            date_send:date_send,
+                            is_draft:is_draft
+                        };
+                        this.api(id).put({}, postData, function (data) {
+                            def.resolve(data);
+                        }, function (err) {
+                            def.reject(err);
+                        });
+                        return def.promise;
+                    },
+                    deleteCampaign: function(id){
+                        var def = $q.defer();
+                        this.api(id).delete({}, {}, function (data) {
+                            def.resolve(data);
+                        }, function (err) {
                             def.reject(err);
                         });
                         return def.promise;
