@@ -13,6 +13,9 @@
                         }
                     },
                     resolve:{
+                        autentica: (['authService',  function (authService) {
+                            return authService.autentica();
+                        }]),
                         segmentData: (['segmentService', '$q', '$log',
                             function (segmentService, $q, $log) {
                                 $log.info('segment::ResolveData::');

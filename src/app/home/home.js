@@ -3,8 +3,13 @@
         function ($stateProvider) {
             $stateProvider
                     .state('root.home', {
-                        url: '/',
+                        url: '/home',
                         parent: 'root',
+                        resolve: {
+                            autentica: (['authService', function (authService) {
+                                return authService.autentica();
+                            }]),
+                        },
                         views: {
                             "container@": {
                                 controller: 'HomeController',

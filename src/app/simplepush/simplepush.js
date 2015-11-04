@@ -5,6 +5,11 @@
                 .state('root.simplepush', {
                     url: '/simplepush',
                     parent: 'root',
+                    resolve:{
+                        autentica: (['authService',  function (authService) {
+                            return authService.autentica();
+                        }]),
+                    },
                     views: {
                         "container@": {
                             controller: 'SimplepushController',

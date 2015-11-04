@@ -11,6 +11,12 @@
                             templateUrl: 'auth/auth.tpl.html'
                         }
                     },
+                    resolve: {
+                        autentica: (['globalService', '$state','$log',  function (globalService, $state, $log) {
+                            return globalService.removeStorage(CUSTOM_HEADER);
+                        }])
+
+                    },
                     data: {
                         pageTitle: 'auth'
                     }
@@ -35,9 +41,16 @@
         };
 
         $scope.submitLogin = function(){
-            alert('hola');
             authService.submitLogin($scope.login.username,$scope.login.password).then(function (data) {
-                $log.debug(data);
+                if(data === true) {
+                    $state.go('root.home');
+                    return true;
+                }
+                else {
+                    alert('Credenciales incorrectas');
+                }
+
+
             }, function (err) {
                 $log.error(err);
             });

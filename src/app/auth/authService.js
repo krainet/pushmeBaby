@@ -2,8 +2,8 @@
  * Api Test Módule
  */
 angular.module('authService', [])
-        .factory('authService', ['$resource', '$q', '$log',
-            function ($resource, $q, $log) {
+        .factory('authService', ['$resource', '$q', '$log', 'globalService','$state',
+            function ($resource, $q, $log, globalService, $state) {
                 return {
                     api: function (extra_route) {
                         if (!extra_route) {
@@ -33,6 +33,16 @@ angular.module('authService', [])
                         });
                         return def.promise;
                     },
+                    autentica: function () {
+                        return globalService.getStorage(CUSTOM_HEADER).then(function (data) {
+                            if (data == null || data == "no-token") {
+                                globalService.setStorage(CUSTOM_HEADER, "no-token");
+                                $state.go('root.auth');
+                            }
+
+                            return true;
+                        });
+                    },
                     submitLogin: function (username,password) {
                         //Service action with promise resolve (then)
                         var def = $q.defer();
@@ -41,9 +51,15 @@ angular.module('authService', [])
                             password:password
                         };
                         this.api().save({}, postData, function (data) {
-                            def.resolve(data);
                             if(data.token){
-
+                                $log.error('Guardar token');
+                                $log.error(data.token);
+                                globalService.removeStorage(CUSTOM_HEADER);
+                                globalService.setStorage(CUSTOM_HEADER, data.token);
+                                def.resolve(true);
+                            }
+                            else {
+                                def.reject(data);
                             }
                         }, function (err) {
                             def.reject(err);

@@ -13,6 +13,11 @@
                         }
                     },
                     resolve:{
+
+                        autentica: (['authService', function (authService) {
+                            return authService.autentica();
+                        }]),
+
                         pushhistoryData: (['pushhistoryService', '$q', '$log',
                             function (pushhistoryService, $q, $log) {
                                 $log.info('pushhistory::ResolveData::');
@@ -46,19 +51,19 @@
             };
 
             init();
-/*
-            function randomDate(start, end) {
-                var mydate=new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
-                return mydate.yyyymmdd();
-            }
+            /*
+             function randomDate(start, end) {
+             var mydate=new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
+             return mydate.yyyymmdd();
+             }
 
-            var self = this;
-            var data = [];
+             var self = this;
+             var data = [];
 
-            for (i = 0; i < 201; i++) {
-                data.push({id:i,name: "Push "+Math.floor( Math.random() * 500), msg:"Push prueba "+Math.floor( Math.random() * 500), dateSend:randomDate(new Date(2015,0,1), new Date())});
-            }
-            */
+             for (i = 0; i < 201; i++) {
+             data.push({id:i,name: "Push "+Math.floor( Math.random() * 500), msg:"Push prueba "+Math.floor( Math.random() * 500), dateSend:randomDate(new Date(2015,0,1), new Date())});
+             }
+             */
             var data = pushhistoryData.data;
 
             $scope.vm={};

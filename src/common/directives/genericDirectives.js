@@ -54,18 +54,21 @@ angular.module('genericDirectives', [])
         };
     })
 
-    .directive('sidebar',['$location',function() {
+    .directive('sidebar',['$location','$state',function($location,$state) {
         return {
             templateUrl:'directives/templates/sidebar.tpl.html',
             restrict: 'E',
             replace: true,
             scope: {
             },
-            controller:function($scope){
+            controller:function($scope, $log, $timeout){
                 $scope.selectedMenu = 'dashboard';
                 $scope.collapseVar = 999;
                 $scope.multiCollapseVar = 0;
 
+               /* $timeout(function(){
+                    $scope.nameS = $state.current.name;
+                });*/
                 var init = function(){
                     $scope.check(1);
                 };

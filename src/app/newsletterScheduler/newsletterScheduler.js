@@ -6,6 +6,11 @@
                 .state('root.newsletterScheduler', {
                     url: '/newsletterscheduler',
                     parent: 'root',
+                    resolve: {
+                        autentica: (['authService', function (authService) {
+                            return authService.autentica();
+                        }]),
+                    },
                     views: {
                         "container@": {
                             controller: 'newsletterSchedulerController',

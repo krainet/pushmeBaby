@@ -13,6 +13,10 @@
                         }
                     },
                     resolve:{
+
+                        autentica: (['authService',  function (authService) {
+                            return authService.autentica();
+                        }]),
                         tokensData: (['devicetokenService', '$q', '$log',
                             function (devicetokenService, $q, $log) {
                                 $log.info('Devicetokens::ResolveData::');

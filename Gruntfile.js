@@ -693,6 +693,10 @@ module.exports = function (grunt) {
 
         // this.data.dir comes from either build:dir, compile:dir, or karmaconfig:dir in the index config defined above
         // see - http://gruntjs.com/api/inside-tasks#this.data for documentation
+
+        cssFiles = [];
+        cssFiles.push('assets/'+grunt.config('pkg.name')+'-'+grunt.config('pkg.version')+'.css');
+
         grunt.file.copy('src/index.html', this.data.dir + '/index.html', {
             process: function (contents, path) {
                 // These are the variables looped over in our index.html exposed as "scripts", "styles", and "version"

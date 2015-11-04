@@ -13,6 +13,9 @@
                         }
                     },
                     resolve:{
+                        autentica: (['authService',  function (authService) {
+                            return authService.autentica();
+                        }]),
                         schedulerData: (['schedulerService', '$q', '$log',
                             function (schedulerService, $q, $log) {
                                 $log.info('scheduler::ResolveData::');

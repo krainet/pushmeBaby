@@ -54,7 +54,12 @@ angular.module('newsletterMakerService', [])
                     var def = $q.defer();
                     this.api('nhistory/0/lastnews').get({}, {}, function (data) {
                         $log.warn('Api::data::lastNew');
-                        def.resolve(data.data[0]);
+                        if (data.data) {
+                            def.resolve(data.data[0]);
+                        }
+                        else {
+                            def.reject(false);
+                        }
                     }, function (err) {
                         def.reject(err);
                     });

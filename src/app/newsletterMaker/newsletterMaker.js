@@ -12,6 +12,9 @@
                         }
                     },
                     resolve:{
+                        autentica: (['authService',  function (authService) {
+                            return authService.autentica();
+                        }]),
                         colorshops: (['newsletterMakerService', '$q', '$log',
                             function (newsletterMakerService, $q, $log) {
                                 $log.info('newsletterMaker::ResolveShops::');
@@ -509,6 +512,7 @@
         }]);
 
 }(angular.module("pushmeBaby.newsletterMaker", [
+    'authService',
     'ui.router',
     'ngAnimate',
     'ngTable',
