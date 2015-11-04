@@ -39,14 +39,13 @@ angular.module('cInterceptor', [])
                             }
                             return parameterValue;
                         };
-
                         if (rejection.status === 403){
                             localStorageService.set(CUSTOM_HEADER,'no-token');
                         }
-                        console.log('Reject::');
+                        //console.log('Reject::');
                         var code = getUrlParam('code');
-                        console.log(code);
-                        console.log(rejection);
+                        //console.log(code);
+                        //console.log(rejection);
                         return $q.reject(rejection);
                     }
                 };

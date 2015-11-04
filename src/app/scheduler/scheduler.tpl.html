@@ -19,8 +19,12 @@
                             {{sch.id}}</td>
                         <td title="'Name'" filter="{ name: 'text'}" sortable="'name'">
                             {{sch.name}}</td>
-                        <td title="'Message'" filter="{ message: 'text'}" sortable="'message'">
-                            {{sch.message}}</td>
+<!--                        <td title="'Message'" filter="{ message: 'text'}" sortable="'message'">
+                            {{sch.message}}</td>-->
+                        <td title="'MSG Andr'" filter="{ message: 'text'}" sortable="'message'">
+                            {{sch.message_android}}</td>
+                        <td title="'MSG Appl'" filter="{ message: 'text'}" sortable="'message'">
+                            {{sch.message_apple}}</td>
                         <td title="'F.Envío'" filter="{ date_send: 'text'}" sortable="'date_send'" style="width:10%;">
                             {{sch.date_send|date:'yyyy-MM-dd'}}</td>
                         <td title="'Draft'" filter="{ is_draft: 'number'}" sortable="'is_draft'" style="width:10%;">

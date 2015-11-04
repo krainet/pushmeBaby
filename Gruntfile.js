@@ -700,6 +700,8 @@ module.exports = function (grunt) {
         grunt.file.copy('src/index.html', this.data.dir + '/index.html', {
             process: function (contents, path) {
                 // These are the variables looped over in our index.html exposed as "scripts", "styles", and "version"
+                cssFiles = [];
+                cssFiles.push('assets/'+grunt.config('pkg.name')+'-'+grunt.config('pkg.version')+'.css');
                 return grunt.template.process(contents, {
                     data: {
                         scripts: jsFiles,

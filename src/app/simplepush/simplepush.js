@@ -52,7 +52,6 @@
                 $scope.prod.apple_platform=id_platform===2||id_platform===999?$scope.dev.apple_platform=false:true;
                 $scope.prod.android_platform=id_platform===1||id_platform===999?$scope.dev.android_platform=false:true;
                 $scope.prod.all_platform=id_platform===1||id_platform===2?$scope.dev.all_platform=false:true;
-                console.log($scope.prod.platform);
             };
 
 
@@ -118,7 +117,8 @@
                         platform:$scope.dev.platform
                     };
                     pushlauncherService.sendSimplePush(pushMsg).then(function(data){
-                        console.log(data);
+                        $log.info('Push send result');
+                        $log.info(data);
                     });
                 }else{
                     alert('Debes fijar un token al que enviar');
@@ -126,7 +126,6 @@
             };
 
             $scope.clearDevForm = function(){
-                console.log('entramos');
                 $scope.dev.selectedData=null;
                 $scope.dev.push_name='';
                 $scope.dev.push_title='';
