@@ -13,7 +13,7 @@
             <li ng-class="{active: collapseVar==1}">
                 <a href="" ng-click="check(1)"><i class="fa fa-sitemap fa-fw"></i> Push<span
                         class="fa arrow"></span></a>
-                <ul class="nav nav-second-level collapse" uib-collapse="collapseVar!=1">
+                <ul class="nav nav-second-level" collapse="collapseVar!=1">
                     <li ui-sref-active>
                         <a ui-sref="root.simplepush"><i class="fa fa-edit fa-fw"></i> Single Push</a>
                     </li>
@@ -31,7 +31,7 @@
             <li ng-class="{active: collapseVar==2}">
                 <a href="" ng-click="check(2)"><i class="fa fa-envelope fa-fw"></i> Newsletter<span
                         class="fa arrow"></span></a>
-                <ul class="nav nav-second-level collapse" uib-collapse="collapseVar!=2">
+                <ul class="nav nav-second-level" collapse="collapseVar!=2">
                     <li ui-sref-active>
                         <a ui-sref="root.newsletterMaker"><i class="fa fa-industry"></i> Newsletter Maker</a>
                     </li>
