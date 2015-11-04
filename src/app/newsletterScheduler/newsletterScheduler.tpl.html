@@ -41,19 +41,19 @@
                             <h6 style="{{sch.sent?'color:green;':'color:red;'}}"><i ng-class="sch.sent?'fa fa-check-circle':'fa fa-times'"></i> {{sch.sent && 'Si' || 'No'}}</h6>
                         </td>
                         <td title="'Actions'" style="width:15%;" class="text-center">
-                            <button class="btn btn-info btn-xs" uib-tooltip="Editar NewsLetter" uib-tooltip-placement="left" uib-tooltip-trigger="mouseenter" ng-click="edit(sch.id)">
+                            <button class="btn btn-info btn-xs" uib-uib-tooltip="Editar NewsLetter" uib-tooltip-placement="left" uib-tooltip-trigger="mouseenter" ng-click="edit(sch.id)">
                                 <i class="fa fa-pencil-square-o"></i>
                             </button>
-                            <button class="btn btn-info btn-xs" uib-tooltip="Duplicar NewsLetter" uib-tooltip-placement="left" uib-tooltip-trigger="mouseenter" ng-click="duplicate(sch.id)">
+                            <button class="btn btn-info btn-xs" uib-uib-tooltip="Duplicar NewsLetter" uib-tooltip-placement="left" uib-tooltip-trigger="mouseenter" ng-click="duplicate(sch.id)">
                                 <i class="fa fa-files-o"></i>
                             </button>
-                            <button class="btn btn-success btn-xs" uib-tooltip="Estadísticas" uib-tooltip-placement="left" uib-tooltip-trigger="mouseenter">
+                            <button class="btn btn-success btn-xs" uib-uib-tooltip="Estadísticas" uib-tooltip-placement="left" uib-tooltip-trigger="mouseenter">
                                 <i class="fa fa-bar-chart"></i>
                             </button>
-                            <button class="btn btn-success btn-xs" uib-tooltip="Enviar AHORA!" uib-tooltip-placement="left" uib-tooltip-trigger="mouseenter" ng-click="send(sch.id, sch.account, sch.country)">
+                            <button class="btn btn-success btn-xs" uib-uib-tooltip="Enviar AHORA!" uib-tooltip-placement="left" uib-tooltip-trigger="mouseenter" ng-click="send(sch.id, sch.account, sch.country)">
                                 <i class="fa fa-paper-plane-o"></i>
                             </button>
-                            <button class="btn btn-danger btn-xs" uib-tooltip="Eliminar NewsLetter" uib-tooltip-placement="left" uib-tooltip-trigger="mouseenter" ng-click="delete(sch.id)">
+                            <button class="btn btn-danger btn-xs" uib-uib-tooltip="Eliminar NewsLetter" uib-tooltip-placement="left" uib-tooltip-trigger="mouseenter" ng-click="delete(sch.id)">
                                 <i class="fa fa-trash-o"></i>
                             </button>
 

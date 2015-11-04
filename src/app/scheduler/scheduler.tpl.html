@@ -34,16 +34,16 @@
                             <h6 style="{{sch.processed?'color:green;':'color:red;'}}"><i ng-class="sch.processed?'fa fa-check-circle':'fa fa-times'"></i> {{sch.processed && 'Si' || 'No'}}</h6>
                         </td>
                         <td title="'Actions'" style="width:15%;" class="text-center">
-                            <button class="btn btn-info btn-xs" tooltip="Editar Push Programado" tooltip-placement="left" tooltip-trigger="mouseenter" ng-click="editScheduller(sch.id)">
+                            <button class="btn btn-info btn-xs" uib-tooltip="Editar Push Programado" tooltip-placement="left" tooltip-trigger="mouseenter" ng-click="editScheduller(sch.id)">
                                 <i class="fa fa-pencil-square-o"></i>
                             </button>
-                            <button class="btn btn-info btn-xs" tooltip="Duplicar Push Programado" tooltip-placement="left" tooltip-trigger="mouseenter">
+                            <button class="btn btn-info btn-xs" uib-tooltip="Duplicar Push Programado" tooltip-placement="left" tooltip-trigger="mouseenter">
                                 <i class="fa fa-files-o"></i>
                             </button>
-                            <button class="btn btn-success btn-xs" tooltip="Estadísticas" tooltip-placement="left" tooltip-trigger="mouseenter">
+                            <button class="btn btn-success btn-xs" uib-tooltip="Estadísticas" tooltip-placement="left" tooltip-trigger="mouseenter">
                                 <i class="fa fa-bar-chart"></i>
                             </button>
-                            <button class="btn btn-danger btn-xs" tooltip="Eliminar Push Programado" tooltip-placement="left" tooltip-trigger="mouseenter">
+                            <button class="btn btn-danger btn-xs" uib-tooltip="Eliminar Push Programado" tooltip-placement="left" tooltip-trigger="mouseenter">
                                 <i class="fa fa-trash-o"></i>
                             </button>
                         </td>
