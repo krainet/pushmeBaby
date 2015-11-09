@@ -22,8 +22,8 @@
                 });
         }]);
 
-    app.controller('SimplepushController', ['$log','$scope','$state','devicetokenService','pushlauncherService','$sce',
-        function ($log,$scope,$state,devicetokenService,pushlauncherService,$sce) {
+    app.controller('SimplepushController', ['$log','$scope','$state','devicetokenService','pushlauncherService','$sce','mqpshService',
+        function ($log,$scope,$state,devicetokenService,pushlauncherService,$sce,mqpshService) {
 
             var init = function () {
                 $log.info('App:: Starting simplepushController');
@@ -35,6 +35,7 @@
                 $scope.dev.platform=0;
                 $scope.dev.android_platform=false;
                 $scope.dev.apple_platform=false;
+                $scope.dev.selradio='Not selected';
 
                 //Prod object
                 $scope.prod=$scope.dev;
@@ -55,15 +56,16 @@
             };
 
 
-            $scope.getTokenFromEmail = function(email){
-                devicetokenService.getTokenFromDeviceToken($scope.dev.email).then(function(data){
-                    $scope.dev.recibedData = data.data;
-                    if(data.data){
-                        $scope.dev.selectedData = data.data.token;
-                        $scope.dev.result = "Token found and loaded";
+            $scope.getTokensFromEmail = function(){
+                mqpshService.getTokensFromEmail($scope.dev.email).then(function(data){
+                    if(data.data.Devicetoken && data.data.Devicetoken.length>0){
+                        $scope.dev.devicetokens = data.data.Devicetoken;
+                        //$scope.dev.selectedData = data.data.token;
+                        //$scope.dev.result = "Token found and loaded";
                     }else{
                         $scope.dev.result = "No results";
                     }
+                    $scope.dev.show_dialog=true;
                 });
             };
 
@@ -136,6 +138,16 @@
                 $scope.dev.show_dialog=false;
             };
 
+            $scope.selectToken = function(token){
+                $scope.dev.selectedData=token;
+                $scope.dev.result = '<h6>Token Loaded:</h6><span class="label label-primary">'+token.substr(0,40)+'</span>';
+            };
+
+            $scope.removeToken = function(){
+                $scope.dev.selectedData=null;
+                $scope.dev.result = null;
+            };
+
             init();
         }]);
 
@@ -143,5 +155,6 @@
     'ui.router',
     'devicetokenService',
     'pushlauncherService',
+    'mqpshService',
     'ngAnimate'
 ])));

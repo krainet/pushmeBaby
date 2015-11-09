@@ -118,7 +118,10 @@
 
                             <div class="well" ng-show="dev.show_dialog" ng-animate="'animate'">
                                 <div class="text-right"><i class="fa fa-times" ng-click="dev.show_dialog=false" style="cursor:pointer;"></i></div>
-                                <div ng-bind-html="dev.result">
+                                <div ng-repeat="dev in dev.devicetokens">
+                                    <h6>Aviable Token:</h6><span ng-click="selectToken(dev.token)" class="label label-primary" style="padding-top:5px;cursor:pointer;">{{ dev.token | limitTo: 20 }}{{dev.token.length > 20 ? '...' : ''}}</span>
+                                </div>
+                                <div ng-bind-html="dev.result" ng-click="removeToken()" style="cursor:pointer;">
                                 </div>
                             </div>
                         </form>
@@ -132,19 +135,19 @@
                                 <span class="input-group-addon">@</span>
                                 <input type="text" class="form-control" placeholder="Email" ng-model="dev.email">
                                 <span class="input-group-btn">
-                                    <button class="btn btn-default" type="button"><i class="fa fa-search"></i>
+                                    <button class="btn btn-default" type="button" ng-click="getTokensFromEmail()"><i class="fa fa-search"></i>
                                     </button>
                                 </span>
                             </div>
-                            <label>Buscar por idCustomer</label>
+<!--                            <label>Buscar por idCustomer</label>
                             <div class="form-group input-group">
                                 <span class="input-group-addon">#</span>
                                 <input type="text" class="form-control" placeholder="IdCustomer" ng-model="dev.id_customer">
                                 <span class="input-group-btn">
-                                    <button class="btn btn-default" type="button"><i class="fa fa-search"></i>
+                                    <button class="btn btn-default" type="button" ng-click="showAlert('hola');"><i class="fa fa-search"></i>
                                     </button>
                                 </span>
-                            </div>
+                            </div>-->
                             <label>DeviceToken</label>
                             <div class="form-group input-group">
                                 <span class="input-group-addon"><i class="fa fa-mobile"></i></span>

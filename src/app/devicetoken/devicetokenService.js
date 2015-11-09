@@ -32,16 +32,16 @@ angular.module('devicetokenService', [])
                         });
                         return def.promise;
                     },
-                    getTokenFromEmail: function (token) {
+/*                    getTokenFromEmail: function (email) {
                         var def = $q.defer();
-                        token = btoa(token);
-                        this.api('0/'+token).get({}, {}, function (data) {
+                        this.api(email).get({}, {}, function (data) {
+
                             def.resolve(data);
                         }, function (err) {
                             def.reject(err);
                         });
                         return def.promise;
-                    },
+                    },*/
                     getTokenFromIdCustomer: function (token) {
                         var def = $q.defer();
                         token = btoa(token);
