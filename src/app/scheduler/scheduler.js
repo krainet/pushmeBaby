@@ -75,7 +75,7 @@
                 $scope.modalInstance.result.then(function(modalResult){
                     schedulerService.submitCampaign(modalResult.campaign_name,modalResult.segment.selectedValues,modalResult.apple,modalResult.android,modalResult.date_send)
                         .then(function(data){
-                            schedulerService.getAllschedulers().then(function (data) {
+                            schedulerService.getAllCampaigns().then(function (data) {
                                 $scope.vm.tableParams = new ngTableParams({count:5}, { data: data.data,counts:[5,10,15,20]});
                             }, function (err) {
                                 $log.error(err);
@@ -134,6 +134,15 @@
                 },function(err){
                     $log.error('Dismissed'+err);
                 });
+            };
+
+            $scope.deleteScheduler = function(id){
+                schedulerService.deleteCampaign(id)
+                    .then(function(data){
+                        $log.info(data);
+                    },function(err){
+                        $log.error(err);
+                    })
             };
 
             init();

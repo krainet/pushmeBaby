@@ -31,21 +31,13 @@ angular.module('cInterceptor', [])
                         return response;
                     },
                     'responseError': function (rejection) {
-                        var getUrlParam= function(parameterName) {
-                            parameterName += "=";
-                            var parameterValue = (location.hash.indexOf(parameterName)) ? location.hash.substring(location.hash.indexOf(parameterName) + parameterName.length) : null;
-                            if (parameterValue !== null && parameterValue.indexOf('&') >= 0) {
-                                parameterValue = parameterValue.substring(0, parameterValue.indexOf('&'));
-                            }
-                            return parameterValue;
-                        };
                         if (rejection.status === 403){
                             localStorageService.set(CUSTOM_HEADER,'no-token');
+                        }else{
+                            //Nothing
                         }
-                        //console.log('Reject::');
-                        var code = getUrlParam('code');
-                        //console.log(code);
-                        //console.log(rejection);
+                        console.log('Reject::');
+                        console.log(rejection);
                         return $q.reject(rejection);
                     }
                 };
